@@ -29,6 +29,18 @@ Hikimori Neko 방송 프로파일이 기본으로 포함되어 있으며,
 
 ---
 
+## 스크린샷
+
+### 메인 화면
+
+<img src="img/main.jpg" alt="HIKI Notifier Main Window" width="780">
+
+### 방송 시작 알림
+
+<img src="img/Notification.jpg" alt="HIKI Notifier Notification" width="390">
+
+---
+
 ## 시스템 요구 사항
 
 - Windows 10 / 11
