@@ -1,0 +1,42 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
+    <ProjectGuid>{1B455694-39B4-4CAA-B517-EED162134C91}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>HikiNotifier</RootNamespace>
+    <AssemblyName>HIKI Notifier</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PlatformTarget>x64</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+    <ApplicationIcon>Assets\HIKI_Notifier.ico</ApplicationIcon>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' "><DebugSymbols>true</DebugSymbols><Optimize>false</Optimize><OutputPath>bin\Debug\</OutputPath></PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' "><DebugSymbols>false</DebugSymbols><Optimize>true</Optimize><OutputPath>bin\Release\</OutputPath></PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System"/><Reference Include="System.Core"/><Reference Include="System.Drawing"/><Reference Include="System.Net.Http"/><Reference Include="System.Windows.Forms"/><Reference Include="System.Web.Extensions"/><Reference Include="System.Xml"/>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs"/><Compile Include="AppInfo.cs"/><Compile Include="AssemblyInfo.cs"/><Compile Include="UI\UiTheme.cs"/><Compile Include="UI\ModernButton.cs"/><Compile Include="UI\ProfileListView.cs"/><Compile Include="UI\LogoResources.cs"/>
+    <Compile Include="Models\ChannelProfile.cs"/><Compile Include="Models\AppSettings.cs"/><Compile Include="Models\LiveState.cs"/><Compile Include="Models\NotificationSoundMode.cs"/><Compile Include="Models\PlatformType.cs"/>
+    <Compile Include="Services\ChzzkClient.cs"/><Compile Include="Services\RplayClient.cs"/><Compile Include="Services\PollingService.cs"/><Compile Include="Services\SettingsService.cs"/><Compile Include="Services\LanguageService.cs"/><Compile Include="Services\SoundService.cs"/><Compile Include="Services\StartupService.cs"/><Compile Include="Services\NotificationService.cs"/>
+    <Compile Include="UI\MainForm.cs"/><Compile Include="UI\ProfileEditForm.cs"/><Compile Include="UI\SettingsForm.cs"/><Compile Include="UI\HelpForm.cs"/><Compile Include="UI\AboutForm.cs"/><Compile Include="Tray\TrayManager.cs"/>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Chzzk.png"><LogicalName>HikiNotifier.Assets.Chzzk.png</LogicalName></EmbeddedResource>
+    <EmbeddedResource Include="Assets\Rplay.png"><LogicalName>HikiNotifier.Assets.Rplay.png</LogicalName></EmbeddedResource>
+    <EmbeddedResource Include="Assets\Twitch.png"><LogicalName>HikiNotifier.Assets.Twitch.png</LogicalName></EmbeddedResource>
+    <EmbeddedResource Include="Assets\kr_logo.png"><LogicalName>HikiNotifier.Assets.kr_logo.png</LogicalName></EmbeddedResource>
+    <EmbeddedResource Include="Assets\EN_logo.png"><LogicalName>HikiNotifier.Assets.EN_logo.png</LogicalName></EmbeddedResource>
+    <EmbeddedResource Include="Assets\ABOUT.png"><LogicalName>HikiNotifier.Assets.ABOUT.png</LogicalName></EmbeddedResource>
+    <EmbeddedResource Include="Assets\mixkit-correct-answer-tone-2870.wav">
+      <LogicalName>HikiNotifier.Assets.DefaultNotification.wav</LogicalName>
+    </EmbeddedResource>
+    <Content Include="lang\ko.ini"><CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory></Content>
+    <Content Include="lang\en.ini"><CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory></Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
