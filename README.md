@@ -21,7 +21,7 @@ No NAVER or CHZZK login is required.
 
 ### Live Notification
 
-![HIKI Notifier Live Notification](img/notification.jpg)
+![HIKI Notifier Live Notification](img/Notification.jpg)
 
 ---
 
@@ -70,7 +70,7 @@ The **Hikimori Neko** profile is included automatically.
 
 The built-in profile cannot be deleted and its channel URL cannot be changed.
 
-However, stream notifications can be freely enabled or disabled.
+Stream notifications can still be freely enabled or disabled.
 
 ---
 
@@ -96,11 +96,11 @@ HIKI Notifier will then monitor the registered channel together with the built-i
 
 When a registered channel goes LIVE, HIKI Notifier displays a desktop notification.
 
-The notification shows information such as:
+The notification displays:
 
 - Channel name
 - Stream title
-- Viewer count
+- Current viewer count
 
 Press **Watch Live** to open the stream in your default browser.
 
@@ -120,7 +120,7 @@ The main channel list displays:
 
 ### Double-click actions
 
-Double-click:
+Double-click any of the following:
 
 - **Channel name**
 - **Stream status**
@@ -133,7 +133,7 @@ Double-click:
 
 - **Notification ON / OFF**
 
-→ Toggles stream notifications for that profile.
+→ Toggles notifications for that profile.
 
 Notification settings can also be changed from the profile editor and the system tray menu.
 
@@ -149,7 +149,7 @@ If a channel is already LIVE and its notification setting is changed from:
 
 HIKI Notifier immediately displays the current live notification once.
 
-This can also be useful for checking the current notification display.
+This can also be used to quickly check the current notification display.
 
 ---
 
@@ -161,7 +161,7 @@ The following notification sound modes are available:
 - Custom WAV file
 - Silent
 
-The notification sound can be changed from the Settings window.
+Notification sound settings can be changed from the Settings window.
 
 ---
 
@@ -189,7 +189,7 @@ HIKI Notifier can optionally start automatically with Windows.
 
 This option can be enabled or disabled from the Settings window.
 
-When started automatically, the application can remain in the system tray without requiring the main window to stay open.
+When started automatically, HIKI Notifier can remain in the system tray without requiring the main window to stay open.
 
 ---
 
@@ -228,19 +228,6 @@ The UI language can be changed from the Settings window.
 
 ---
 
-## Development
-
-HIKI Notifier is built with:
-
-- C#
-- .NET Framework 4.8
-- Windows Forms
-- x64
-
-The application is designed to remain lightweight while running continuously in the background.
-
----
-
 ## Download
 
 Download the latest version from the **Releases** section of this repository.
@@ -254,6 +241,19 @@ Extract the ZIP file and run:
 `HIKI Notifier.exe`
 
 No installer is required.
+
+---
+
+## Development
+
+HIKI Notifier is built with:
+
+- C#
+- .NET Framework 4.8
+- Windows Forms
+- x64
+
+The application is designed to remain lightweight while running continuously in the background.
 
 ---
 
@@ -328,7 +328,7 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 
 ### 방송 시작 알림
 
-![HIKI Notifier 방송 시작 알림](img/notification.jpg)
+![HIKI Notifier 방송 시작 알림](img/Notification.jpg)
 
 ---
 
@@ -403,7 +403,7 @@ https://chzzk.naver.com/live/CHANNEL_ID
 
 등록된 채널이 방송을 시작하면 데스크톱 알림창이 표시됩니다.
 
-알림창에서는 다음과 같은 정보를 확인할 수 있습니다.
+알림창에서는 다음 정보를 확인할 수 있습니다.
 
 - 채널 이름
 - 방송 제목
@@ -536,20 +536,6 @@ UI 언어는 설정 화면에서 변경할 수 있습니다.
 
 ---
 
-## 개발 환경
-
-HIKI Notifier는 다음 환경을 기반으로 제작되었습니다.
-
-- C#
-- .NET Framework 4.8
-- Windows Forms
-- x64
-
-백그라운드에서 계속 실행되는 프로그램인 만큼  
-가볍고 단순하게 동작하는 것을 목표로 제작되었습니다.
-
----
-
 ## 다운로드
 
 이 저장소의 **Releases** 메뉴에서 최신 버전을 받을 수 있습니다.
@@ -565,6 +551,20 @@ HIKI Notifier는 다음 환경을 기반으로 제작되었습니다.
 를 실행하면 됩니다.
 
 별도의 설치 프로그램은 필요하지 않습니다.
+
+---
+
+## 개발 환경
+
+HIKI Notifier는 다음 환경을 기반으로 제작되었습니다.
+
+- C#
+- .NET Framework 4.8
+- Windows Forms
+- x64
+
+백그라운드에서 계속 실행되는 프로그램인 만큼  
+가볍고 단순하게 동작하는 것을 목표로 제작되었습니다.
 
 ---
 
