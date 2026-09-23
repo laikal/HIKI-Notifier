@@ -269,8 +269,6 @@ Current version:
 
 **Eltax**
 
-GitHub: **laikal**
-
 ---
 
 ## Special Thanks
@@ -579,8 +577,6 @@ HIKI Notifier는 다음 환경을 기반으로 제작되었습니다.
 ## 개발자
 
 **Eltax**
-
-GitHub: **laikal**
 
 ---
 
