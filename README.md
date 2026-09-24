@@ -18,7 +18,11 @@ No NAVER, CHZZK, Google, or YouTube login is required.
 
 ### Main Window
 
-![HIKI Notifier Main Window](img/main1.11.jpg)
+![HIKI Notifier Main Window](img/main1.11c.jpg)
+
+### Add Profile
+
+![HIKI Notifier Add Profile](img/addprofile.jpg.jpg)
 
 ### Notification
 
@@ -91,9 +95,11 @@ Notification settings can still be enabled or disabled individually.
 
 Press **Add Profile** in the main window.
 
-Enter a streamer name and, if desired, a memo.
+Enter:
 
-You can then add linked channel URLs.
+- Streamer name
+- Optional memo
+- One or more linked channel URLs
 
 CHZZK example:
 
@@ -144,9 +150,29 @@ Depending on the platform, the list can display:
 - Notification ON / OFF
 - Current stream title or latest content title
 
-Select a channel row to access the actions available for that channel.
+Select a channel row to use the actions available for that channel.
 
 Notification settings can also be changed from the profile editor and the system tray menu.
+
+---
+
+## Streamer Profiles
+
+Profiles are organized by streamer rather than by individual platform.
+
+One streamer profile can contain multiple linked channels.
+
+For example:
+
+```text
+Hikimori Neko
+├─ CHZZK
+└─ YouTube
+```
+
+Each profile can also contain a memo for personal identification or notes.
+
+Channel notification settings are managed individually.
 
 ---
 
@@ -209,7 +235,7 @@ HIKI Notifier monitors newly published YouTube videos and Shorts without requiri
 
 The application normally uses the public YouTube feed for lightweight monitoring.
 
-If the feed is temporarily unavailable, HIKI Notifier can fall back to the channel's public Videos and Shorts pages and detect new content from publicly available channel data.
+If the feed is temporarily unavailable, HIKI Notifier can fall back to the channel's public **Videos** and **Shorts** pages and detect new content from publicly available channel data.
 
 Previously processed video IDs are retained to prevent duplicate notifications, including after the normal feed becomes available again.
 
@@ -223,7 +249,14 @@ Closing or minimizing the main window does **not** exit HIKI Notifier.
 
 The application continues running in the Windows system tray.
 
-From the tray menu you can access available channel and notification actions, open HIKI Notifier, view program information, or exit the application.
+From the tray menu you can:
+
+- Open HIKI Notifier
+- Access available channel actions
+- Enable or disable channel notifications
+- Open available stream/content pages
+- Open program information
+- Exit the application
 
 To completely close HIKI Notifier, right-click the tray icon and select **Exit**.
 
@@ -281,6 +314,8 @@ Code=ja
 After a valid language file is added, it automatically appears in the language selection list.
 
 If a translation key is missing from an additional language pack, the English language pack is used as a fallback.
+
+This also allows users to create and share their own translations without modifying the program itself.
 
 ---
 
@@ -386,7 +421,11 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 
 ### 메인 화면
 
-![HIKI Notifier 메인 화면](img/main1.11.jpg)
+![HIKI Notifier 메인 화면](img/main1.11c.jpg)
+
+### 프로파일 추가
+
+![HIKI Notifier 프로파일 추가](img/addprofile.jpg.jpg)
 
 ### 알림창
 
@@ -409,6 +448,7 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 - Hikimori Neko 치지직 + YouTube 기본 프로파일
 - 여러 스트리머 프로파일 등록
 - 하나의 스트리머에 여러 채널 연결
+- 스트리머별 메모 작성
 - 채널별 알림 ON / OFF
 - 알림을 OFF → ON으로 다시 켰을 때 현재 유효한 알림을 즉시 1회 재표시
 - 알림창에서 방송 또는 YouTube 콘텐츠 바로 열기
@@ -461,7 +501,11 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 
 메인 화면에서 **프로파일 추가** 버튼을 누릅니다.
 
-스트리머 이름과 필요한 경우 메모를 입력한 뒤 채널 주소를 추가할 수 있습니다.
+다음 정보를 입력할 수 있습니다.
+
+- 스트리머 이름
+- 선택 사항인 메모
+- 하나 이상의 연결 채널 주소
 
 치지직 예:
 
@@ -519,6 +563,25 @@ YouTube 알림에는 콘텐츠 제목과 해당 콘텐츠를 기본 브라우저
 
 ---
 
+## 스트리머 프로파일
+
+HIKI Notifier는 플랫폼마다 별도의 프로파일을 만드는 대신  
+하나의 스트리머 아래 여러 채널을 연결하는 구조를 사용합니다.
+
+예:
+
+```text
+Hikimori Neko
+├─ CHZZK
+└─ YouTube
+```
+
+프로파일에는 스트리머를 구분하기 위한 메모도 작성할 수 있습니다.
+
+각 연결 채널의 알림 설정은 개별적으로 관리됩니다.
+
+---
+
 ## 알림 설정
 
 각 연결 채널마다 알림을 개별적으로 켜거나 끌 수 있습니다.
@@ -557,7 +620,8 @@ YouTube의 경우:
 
 설정값은 실제 플랫폼 알림과 알림 테스트에 동일하게 적용됩니다.
 
-**알림 테스트**를 이용하면 설정을 저장하기 전에도 현재 알림창 표시 상태를 바로 확인할 수 있습니다.
+**알림 테스트**를 이용하면 설정을 저장하기 전에도  
+현재 알림창 표시 상태를 바로 확인할 수 있습니다.
 
 ---
 
@@ -597,8 +661,13 @@ YouTube 피드가 일시적으로 사용할 수 없는 경우에는
 
 프로그램은 Windows 시스템 트레이에서 계속 실행됩니다.
 
-트레이 메뉴에서는 채널과 알림 관련 기능, HIKI Notifier 열기,  
-프로그램 정보 확인 및 프로그램 종료 등을 사용할 수 있습니다.
+트레이 메뉴에서는 다음과 같은 기능을 사용할 수 있습니다.
+
+- HIKI Notifier 열기
+- 채널별 알림 ON / OFF
+- 사용 가능한 방송 / 콘텐츠 페이지 열기
+- 프로그램 정보
+- 프로그램 종료
 
 프로그램을 완전히 종료하려면 트레이 아이콘을 우클릭한 뒤  
 **프로그램 종료**를 선택하세요.
@@ -654,9 +723,14 @@ Name=日本語
 Code=ja
 ```
 
-유효한 언어팩을 `lang` 폴더에 추가하면 설정창의 언어 목록에 자동으로 표시됩니다.
+유효한 언어팩을 `lang` 폴더에 추가하면  
+설정창의 언어 목록에 자동으로 표시됩니다.
 
-추가 언어팩에 특정 번역 항목이 없을 경우 English 언어팩을 기본값으로 사용합니다.
+추가 언어팩에 특정 번역 항목이 없을 경우  
+English 언어팩을 기본값으로 사용합니다.
+
+이를 통해 프로그램 자체를 수정하지 않고도  
+사용자가 직접 번역 언어팩을 만들어 사용할 수 있습니다.
 
 ---
 
