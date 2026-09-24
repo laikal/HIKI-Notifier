@@ -1,40 +1,820 @@
-# HIKI Notifier / 히키 알리미
+# HIKI Notifier
 
-Eltax의 팬메이드 Windows 알림 유틸리티입니다. NAVER, CHZZK, RPLAY, YouTube 또는 Hikimori Neko의 공식 프로그램이 아닙니다.
+**English | [한국어](#한국어)**
 
-HIKI Notifier is a fan-made Windows notification utility by Eltax. It is not an official app of NAVER, CHZZK, RPLAY, YouTube, or Hikimori Neko.
+A lightweight Windows notification utility for CHZZK and YouTube.
 
-## 환경 / Requirements
+HIKI Notifier includes a built-in **Hikimori Neko** profile with linked CHZZK and YouTube channels.  
+Additional streamer profiles and channels can also be registered manually.
 
-- Windows 10/11, x64, .NET Framework 4.8
-- 로그인 또는 API 키 불필요 / No login or API key required
-- CHZZK·RPLAY LIVE 상태: 30초 간격 / CHZZK and RPLAY live status: 30 seconds
-- YouTube 공개 Atom 피드의 새 콘텐츠: 180초 간격 / New content from the public YouTube Atom feed: 180 seconds
+No NAVER, CHZZK, Google, or YouTube login is required.
 
-YouTube RSS가 일시적으로 실패하면 공개 채널의 동영상·Shorts 페이지를 보조 정보원으로 확인합니다. HTML 구조 변경 시 감지가 지연될 수 있습니다.
+> **Unofficial fan-made utility**  
+> HIKI Notifier is not affiliated with or endorsed by NAVER, CHZZK, YouTube, Google, or their respective operators.
 
-If YouTube RSS is temporarily unavailable, the app checks the public channel's Videos and Shorts pages as a fallback. Changes to YouTube's page structure may delay detection.
+---
 
-## 사용 / Use
+## Screenshots
 
-Hikimori Neko 스트리머에는 CHZZK와 YouTube 채널이 내장되어 있습니다. 이름·URL은 고정이며 메모와 채널별 알림은 수정할 수 있습니다. 사용자 스트리머를 추가할 때 이름, 메모, 첫 CHZZK/RPLAY/YouTube 채널 URL을 입력하고, 편집창에서 다른 플랫폼 채널을 연결할 수 있습니다. YouTube LIVE 감지는 아직 지원하지 않습니다.
+### Main Window
 
-Hikimori Neko is built in with CHZZK and YouTube channels. Its name and URLs are fixed, while its memo and per-channel alerts can be changed. Add a streamer with a name, memo, and first CHZZK/RPLAY/YouTube channel URL; connect other platform channels in the edit window. YouTube live detection is not supported yet.
+![HIKI Notifier Main Window](img/main1.11c.jpg)
 
-YouTube 채널 ID를 확인했지만 RSS 피드가 일시적으로 실패하면 채널은 확인 대기 상태로 등록됩니다. 첫 정상 피드는 기존 콘텐츠를 기준값으로 저장하며 알림을 보내지 않습니다.
+### Add Profile
 
-If a YouTube channel ID resolves but its RSS feed is temporarily unavailable, the channel is registered as pending. The first successful feed establishes a baseline without an alert.
+![HIKI Notifier Add Profile](img/addprofile.jpg.jpg)
 
-알림창에서는 보기 버튼을 눌렀을 때만 브라우저가 열립니다. 창을 닫거나 최소화해도 트레이에서 계속 실행되며, 트레이 메뉴의 **프로그램 종료**로 종료합니다. 기본 WAV, 사용자 WAV, 무음 중 알림음을 선택할 수 있습니다.
+### Notification
 
-Only the alert's watch button opens a browser. Closing or minimizing the window leaves the app in the tray; choose **Exit** in the tray menu to quit. Notification sound can use the embedded WAV, a custom WAV, or silence.
+![HIKI Notifier Notification](img/Notification1.jpg)
 
-전역 설정과 내장 HIKI 상태는 `%LocalAppData%\HIKI Notifier\settings.json`, 사용자 스트리머는 같은 폴더의 `profiles\{ID}.json`에 각각 저장됩니다. 이전 EXE 옆 또는 `%AppData%`의 단일 설정 JSON은 첫 실행 시 백업 후 자동 변환합니다. UI 언어는 `lang\*.ini` 언어팩을 자동 검색하며, 누락된 번역은 영어로 표시합니다.
+### YouTube Notification
 
-Global settings and built-in HIKI state are saved to `%LocalAppData%\HIKI Notifier\settings.json`. Each user streamer has one `profiles\{ID}.json`. An older single JSON beside the EXE or under `%AppData%` is backed up and migrated on first run. UI language packs are discovered from `lang\*.ini`; missing translations fall back to English.
+![HIKI Notifier YouTube Notification](img/Notification2.jpg)
 
-## 빌드 / Build
+---
 
-Visual Studio의 .NET Framework 4.8 개발 도구가 필요합니다. `./build.ps1 -Test`는 x64 Release 빌드와 로직 검사를 수행합니다. 실행 파일은 `bin\Release\HIKI Notifier.exe`입니다.
+## Features
 
-Visual Studio with .NET Framework 4.8 targeting tools is required. `./build.ps1 -Test` builds x64 Release and runs logic checks. The app is `bin\Release\HIKI Notifier.exe`.
+- CHZZK LIVE / OFFLINE / UNKNOWN status monitoring
+- Desktop notification when a registered CHZZK channel goes LIVE
+- Current CHZZK viewer count
+- Current CHZZK stream title
+- YouTube new video and Shorts notifications
+- Latest YouTube content title display
+- Built-in Hikimori Neko profile with CHZZK and YouTube channels
+- Multiple streamer profiles
+- Multiple linked channels per streamer profile
+- Per-channel notification ON / OFF
+- Immediate one-time notification replay when alerts are re-enabled and a relevant current notification is available
+- Open streams or YouTube content directly from the notification window
+- System tray operation
+- Optional startup with Windows
+- Built-in notification sound
+- Custom WAV notification sound
+- Silent mode
+- Adjustable notification window opacity from 50% to 100%
+- Notification test from the Settings window
+- Dynamic INI language pack discovery
+- Korean and English language packs included
+- No account login required
+
+---
+
+## Basic Usage
+
+### 1. Download and run
+
+Download the latest ZIP file from the **Releases** section.
+
+Current release:
+
+`HIKI Notifier 1.11c.zip`
+
+Extract the ZIP file to any folder and run:
+
+`HIKI Notifier.exe`
+
+No installer is required.
+
+---
+
+### 2. Built-in Hikimori Neko profile
+
+The **Hikimori Neko** profile is included automatically.
+
+It contains built-in CHZZK and YouTube channels.
+
+The built-in profile and its predefined channel addresses are protected from deletion or modification.
+
+Notification settings can still be enabled or disabled individually.
+
+---
+
+### 3. Add another streamer profile
+
+Press **Add Profile** in the main window.
+
+Enter:
+
+- Streamer name
+- Optional memo
+- One or more linked channel URLs
+
+CHZZK example:
+
+```text
+https://chzzk.naver.com/live/CHANNEL_ID
+```
+
+YouTube example:
+
+```text
+https://www.youtube.com/@HANDLE
+```
+
+HIKI Notifier detects the supported platform from the entered URL.
+
+A single streamer profile can contain multiple linked channels.
+
+---
+
+### 4. Receive notifications
+
+For CHZZK, a desktop notification is displayed when a registered channel goes LIVE.
+
+The notification can include:
+
+- Streamer name
+- Stream title
+- Current viewer count
+
+For YouTube, HIKI Notifier can notify you when a new video or Shorts content is detected.
+
+The notification includes the content title and a button to open the content in your default browser.
+
+Only the explicit **Watch / Open** button opens the browser.  
+Clicking other parts of the notification window does not open a page.
+
+---
+
+## Main Window
+
+The main list groups linked channels under each streamer profile.
+
+Depending on the platform, the list can display:
+
+- Streamer / platform
+- Stream status
+- Viewer count
+- Notification ON / OFF
+- Current stream title or latest content title
+
+Select a channel row to use the actions available for that channel.
+
+Notification settings can also be changed from the profile editor and the system tray menu.
+
+---
+
+## Streamer Profiles
+
+Profiles are organized by streamer rather than by individual platform.
+
+One streamer profile can contain multiple linked channels.
+
+For example:
+
+```text
+Hikimori Neko
+├─ CHZZK
+└─ YouTube
+```
+
+Each profile can also contain a memo for personal identification or notes.
+
+Channel notification settings are managed individually.
+
+---
+
+## Notification Settings
+
+Notifications can be enabled or disabled separately for each linked channel.
+
+When a notification setting is manually changed from:
+
+`OFF → ON`
+
+HIKI Notifier can immediately replay the currently relevant notification once.
+
+For CHZZK:
+
+- If the channel is currently LIVE, the current live notification is shown once.
+- If the channel is OFFLINE or UNKNOWN, no notification is shown.
+
+For YouTube:
+
+- If valid latest content information is already available, the latest content notification is shown once.
+
+This replay does not mark the stream or video as newly detected and does not cause duplicate automatic notifications.
+
+Restoring an enabled notification setting when the application starts does not trigger a replay.
+
+---
+
+## Notification Appearance
+
+The notification window opacity can be adjusted from the Settings window.
+
+Available range:
+
+`50% → 100%`
+
+The current value is displayed as a percentage.
+
+The setting applies to actual platform notifications and notification tests.
+
+You can use **Notification Test** to preview the current appearance before saving the settings.
+
+---
+
+## Notification Sound
+
+The following notification sound modes are available:
+
+- Built-in notification sound
+- Custom WAV file
+- Silent
+
+Notification sound settings can be changed from the Settings window.
+
+---
+
+## YouTube Monitoring
+
+HIKI Notifier monitors newly published YouTube videos and Shorts without requiring a Google or YouTube login.
+
+The application normally uses the public YouTube feed for lightweight monitoring.
+
+If the feed is temporarily unavailable, HIKI Notifier can fall back to the channel's public **Videos** and **Shorts** pages and detect new content from publicly available channel data.
+
+Previously processed video IDs are retained to prevent duplicate notifications, including after the normal feed becomes available again.
+
+Because this feature depends on public YouTube feeds and page structures, future changes made by YouTube may require updates to HIKI Notifier.
+
+---
+
+## System Tray
+
+Closing or minimizing the main window does **not** exit HIKI Notifier.
+
+The application continues running in the Windows system tray.
+
+From the tray menu you can:
+
+- Open HIKI Notifier
+- Access available channel actions
+- Enable or disable channel notifications
+- Open available stream/content pages
+- Open program information
+- Exit the application
+
+To completely close HIKI Notifier, right-click the tray icon and select **Exit**.
+
+---
+
+## Start with Windows
+
+HIKI Notifier can optionally start automatically with Windows.
+
+This option can be enabled or disabled from the Settings window.
+
+When started automatically, HIKI Notifier can remain in the system tray without requiring the main window to stay open.
+
+---
+
+## Stream Status Monitoring
+
+HIKI Notifier periodically checks the current status of registered CHZZK channels.
+
+Possible states include:
+
+- LIVE
+- OFFLINE
+- UNKNOWN
+
+Temporary network errors are not automatically treated as OFFLINE.
+
+This helps prevent incorrect state changes and repeated notifications caused by temporary connection problems.
+
+---
+
+## Languages
+
+HIKI Notifier includes:
+
+- 한국어
+- English
+
+Additional language packs can be added without rebuilding the application.
+
+Language files are automatically discovered from:
+
+```text
+lang\*.ini
+```
+
+Each language pack identifies itself using metadata such as:
+
+```ini
+[Language]
+Name=日本語
+Code=ja
+```
+
+After a valid language file is added, it automatically appears in the language selection list.
+
+If a translation key is missing from an additional language pack, the English language pack is used as a fallback.
+
+This also allows users to create and share their own translations without modifying the program itself.
+
+---
+
+## System Requirements
+
+- 64-bit Windows 10 or Windows 11
+- x64 processor
+- .NET Framework 4.8
+
+---
+
+## Download
+
+Download the latest version from the **Releases** section of this repository.
+
+Current release:
+
+`HIKI Notifier 1.11c.zip`
+
+Extract the ZIP file and run:
+
+`HIKI Notifier.exe`
+
+No installer is required.
+
+---
+
+## Development
+
+HIKI Notifier is built with:
+
+- C#
+- .NET Framework 4.8
+- Windows Forms
+- x64
+
+The application is designed to remain lightweight while continuously monitoring registered channels in the background.
+
+---
+
+## Version
+
+Current version:
+
+**1.11c**
+
+---
+
+## Developer
+
+**Eltax**
+
+---
+
+## Special Thanks
+
+### Hikimori Neko
+
+The person who inspired this project.
+
+---
+
+## Disclaimer
+
+HIKI Notifier is an unofficial fan-made utility.
+
+It is not affiliated with or endorsed by NAVER, CHZZK, YouTube, Google, or their respective operators.
+
+All service names and trademarks belong to their respective owners.
+
+Changes to service APIs, public feeds, or web structures may cause some features to stop working correctly.
+
+---
+
+## License
+
+No open-source license is currently provided for this repository.
+
+**Copyright © Eltax. All rights reserved.**
+
+Third-party trademarks, service names, and externally sourced assets remain subject to the rights and license terms of their respective owners.
+
+---
+
+# 한국어
+
+**[English](#hiki-notifier) | 한국어**
+
+**HIKI Notifier**는 치지직(CHZZK) 방송과 YouTube 새 콘텐츠를 확인하기 위한  
+가벼운 Windows용 알림 유틸리티입니다.
+
+**Hikimori Neko**의 치지직 및 YouTube 채널이 연결된 기본 프로파일이 포함되어 있으며,  
+원하는 다른 스트리머와 채널도 직접 등록할 수 있습니다.
+
+네이버, 치지직, Google 또는 YouTube 로그인이 필요하지 않습니다.
+
+> **비공식 팬메이드 유틸리티**  
+> HIKI Notifier는 NAVER, CHZZK, YouTube, Google 또는 관련 운영사의 공식 프로그램이 아닙니다.
+
+---
+
+## 스크린샷
+
+### 메인 화면
+
+![HIKI Notifier 메인 화면](img/main1.11c.jpg)
+
+### 프로파일 추가
+
+![HIKI Notifier 프로파일 추가](img/addprofile.jpg.jpg)
+
+### 알림창
+
+![HIKI Notifier 알림창](img/Notification1.jpg)
+
+### YouTube 알림
+
+![HIKI Notifier YouTube 알림](img/Notification2.jpg)
+
+---
+
+## 주요 기능
+
+- 치지직 LIVE / OFFLINE / UNKNOWN 상태 확인
+- 치지직 방송 시작 시 데스크톱 알림
+- 현재 치지직 시청자 수 표시
+- 현재 치지직 방송 제목 표시
+- YouTube 새 영상 및 Shorts 알림
+- YouTube 최신 콘텐츠 제목 표시
+- Hikimori Neko 치지직 + YouTube 기본 프로파일
+- 여러 스트리머 프로파일 등록
+- 하나의 스트리머에 여러 채널 연결
+- 스트리머별 메모 작성
+- 채널별 알림 ON / OFF
+- 알림을 OFF → ON으로 다시 켰을 때 현재 유효한 알림을 즉시 1회 재표시
+- 알림창에서 방송 또는 YouTube 콘텐츠 바로 열기
+- 시스템 트레이 상주
+- Windows 시작 시 자동 실행 옵션
+- 프로그램 기본 알림음
+- 사용자 지정 WAV 알림음
+- 무음 모드
+- 알림창 투명도 50~100% 조절
+- 설정창 알림 테스트
+- INI 언어팩 자동 인식
+- 한국어 / English 언어팩 기본 제공
+- 계정 로그인 없이 사용 가능
+
+---
+
+## 기본 사용법
+
+### 1. 다운로드 및 실행
+
+이 저장소의 **Releases** 메뉴에서 최신 ZIP 파일을 다운로드합니다.
+
+현재 배포 버전:
+
+`HIKI Notifier 1.11c.zip`
+
+원하는 폴더에 압축을 풀고:
+
+`HIKI Notifier.exe`
+
+를 실행하면 됩니다.
+
+별도의 설치 프로그램은 필요하지 않습니다.
+
+---
+
+### 2. Hikimori Neko 기본 프로파일
+
+**Hikimori Neko** 프로파일은 프로그램에 기본으로 포함되어 있습니다.
+
+기본 프로파일에는 치지직과 YouTube 채널이 연결되어 있습니다.
+
+기본 프로파일과 기본 채널 주소는 삭제하거나 변경할 수 없습니다.
+
+각 채널의 알림 ON / OFF 설정은 자유롭게 변경할 수 있습니다.
+
+---
+
+### 3. 다른 스트리머 프로파일 추가
+
+메인 화면에서 **프로파일 추가** 버튼을 누릅니다.
+
+다음 정보를 입력할 수 있습니다.
+
+- 스트리머 이름
+- 선택 사항인 메모
+- 하나 이상의 연결 채널 주소
+
+치지직 예:
+
+```text
+https://chzzk.naver.com/live/CHANNEL_ID
+```
+
+YouTube 예:
+
+```text
+https://www.youtube.com/@HANDLE
+```
+
+HIKI Notifier는 입력한 주소를 기준으로 지원 플랫폼을 자동으로 판별합니다.
+
+하나의 스트리머 프로파일에 여러 채널을 연결할 수 있습니다.
+
+---
+
+### 4. 알림 받기
+
+등록된 치지직 채널이 방송을 시작하면 데스크톱 알림창이 표시됩니다.
+
+치지직 알림에서는 다음 정보를 확인할 수 있습니다.
+
+- 스트리머 이름
+- 방송 제목
+- 현재 시청자 수
+
+YouTube에서는 새 영상 또는 Shorts가 확인되면 새 콘텐츠 알림이 표시됩니다.
+
+YouTube 알림에는 콘텐츠 제목과 해당 콘텐츠를 기본 브라우저에서 여는 버튼이 표시됩니다.
+
+브라우저는 명시적인 **보러가기 / 열기** 버튼을 눌렀을 때만 열립니다.
+
+알림창의 다른 부분을 클릭해도 브라우저는 열리지 않습니다.
+
+---
+
+## 메인 화면
+
+메인 목록은 스트리머별로 연결된 채널을 묶어서 표시합니다.
+
+플랫폼에 따라 다음 정보를 확인할 수 있습니다.
+
+- 스트리머 / 플랫폼
+- 방송 상태
+- 시청자 수
+- 알림 ON / OFF
+- 현재 방송 제목 또는 최신 콘텐츠 제목
+
+채널 행을 선택하면 해당 채널에서 사용할 수 있는 기능을 실행할 수 있습니다.
+
+알림 설정은 프로파일 편집창과 시스템 트레이에서도 변경할 수 있습니다.
+
+---
+
+## 스트리머 프로파일
+
+HIKI Notifier는 플랫폼마다 별도의 프로파일을 만드는 대신  
+하나의 스트리머 아래 여러 채널을 연결하는 구조를 사용합니다.
+
+예:
+
+```text
+Hikimori Neko
+├─ CHZZK
+└─ YouTube
+```
+
+프로파일에는 스트리머를 구분하기 위한 메모도 작성할 수 있습니다.
+
+각 연결 채널의 알림 설정은 개별적으로 관리됩니다.
+
+---
+
+## 알림 설정
+
+각 연결 채널마다 알림을 개별적으로 켜거나 끌 수 있습니다.
+
+사용자가 직접 알림을:
+
+`OFF → ON`
+
+으로 변경하면 현재 다시 표시할 수 있는 유효한 알림이 있는 경우 즉시 1회 재표시합니다.
+
+치지직의 경우:
+
+- 현재 LIVE → 현재 방송 알림 1회 재표시
+- OFFLINE / UNKNOWN → 알림 없음
+
+YouTube의 경우:
+
+- 현재 유효한 최신 콘텐츠 정보가 존재 → 최신 콘텐츠 알림 1회 재표시
+
+이 기능은 새로운 방송이나 콘텐츠를 다시 감지한 것으로 처리하지 않기 때문에  
+자동 알림 중복은 발생하지 않습니다.
+
+프로그램 시작 시 저장된 ON 상태를 복원하는 것만으로는 재알림하지 않습니다.
+
+---
+
+## 알림창 설정
+
+설정 화면에서 알림창의 투명도를 조절할 수 있습니다.
+
+설정 범위:
+
+`50% → 100%`
+
+현재 선택값은 퍼센트로 표시됩니다.
+
+설정값은 실제 플랫폼 알림과 알림 테스트에 동일하게 적용됩니다.
+
+**알림 테스트**를 이용하면 설정을 저장하기 전에도  
+현재 알림창 표시 상태를 바로 확인할 수 있습니다.
+
+---
+
+## 알림음
+
+다음 세 가지 알림음 방식을 사용할 수 있습니다.
+
+- 프로그램 기본 알림음
+- 사용자 지정 WAV
+- 무음
+
+설정 화면에서 원하는 알림 방식을 선택할 수 있습니다.
+
+---
+
+## YouTube 새 콘텐츠 확인
+
+HIKI Notifier는 Google 또는 YouTube 로그인 없이  
+새 YouTube 영상과 Shorts를 확인합니다.
+
+일반적으로 가벼운 공개 YouTube 피드를 우선 사용합니다.
+
+YouTube 피드가 일시적으로 사용할 수 없는 경우에는  
+공개된 채널의 **동영상** 및 **Shorts** 페이지를 보조 수단으로 확인할 수 있습니다.
+
+이미 처리한 videoId를 기록하여 같은 콘텐츠가 반복해서 알림되는 것을 방지하며,  
+정상 피드가 다시 복구된 이후에도 같은 콘텐츠를 다시 알리지 않습니다.
+
+이 기능은 YouTube에서 공개하는 피드 및 웹 페이지 구조를 이용하기 때문에  
+향후 YouTube 측 구조 변경에 따라 업데이트가 필요할 수 있습니다.
+
+---
+
+## 시스템 트레이
+
+메인 창을 닫거나 최소화해도 HIKI Notifier는 종료되지 않습니다.
+
+프로그램은 Windows 시스템 트레이에서 계속 실행됩니다.
+
+트레이 메뉴에서는 다음과 같은 기능을 사용할 수 있습니다.
+
+- HIKI Notifier 열기
+- 채널별 알림 ON / OFF
+- 사용 가능한 방송 / 콘텐츠 페이지 열기
+- 프로그램 정보
+- 프로그램 종료
+
+프로그램을 완전히 종료하려면 트레이 아이콘을 우클릭한 뒤  
+**프로그램 종료**를 선택하세요.
+
+---
+
+## Windows 시작 시 자동 실행
+
+설정 화면에서 Windows 시작 시 HIKI Notifier가 자동으로 실행되도록 설정할 수 있습니다.
+
+자동 실행 상태에서는 메인 창을 계속 열어둘 필요 없이  
+트레이에서 백그라운드로 동작할 수 있습니다.
+
+---
+
+## 방송 상태 확인
+
+HIKI Notifier는 일정 간격으로 등록된 치지직 채널의 방송 상태를 확인합니다.
+
+방송 상태는 다음과 같이 표시될 수 있습니다.
+
+- LIVE
+- OFFLINE
+- UNKNOWN
+
+일시적인 네트워크 오류가 발생했다고 해서  
+채널을 즉시 OFFLINE으로 처리하지 않습니다.
+
+이를 통해 일시적인 연결 문제로 인한 잘못된 상태 변경과 재알림을 줄입니다.
+
+---
+
+## 언어
+
+기본 제공 언어팩:
+
+- 한국어
+- English
+
+추가 언어팩은 프로그램을 다시 빌드하지 않고도 추가할 수 있습니다.
+
+프로그램은 다음 위치의 INI 파일을 자동으로 확인합니다.
+
+```text
+lang\*.ini
+```
+
+각 언어팩에는 다음과 같은 언어 정보가 포함됩니다.
+
+```ini
+[Language]
+Name=日本語
+Code=ja
+```
+
+유효한 언어팩을 `lang` 폴더에 추가하면  
+설정창의 언어 목록에 자동으로 표시됩니다.
+
+추가 언어팩에 특정 번역 항목이 없을 경우  
+English 언어팩을 기본값으로 사용합니다.
+
+이를 통해 프로그램 자체를 수정하지 않고도  
+사용자가 직접 번역 언어팩을 만들어 사용할 수 있습니다.
+
+---
+
+## 시스템 요구 사항
+
+- 64비트 Windows 10 또는 Windows 11
+- x64 프로세서
+- .NET Framework 4.8
+
+---
+
+## 다운로드
+
+이 저장소의 **Releases** 메뉴에서 최신 버전을 받을 수 있습니다.
+
+현재 배포 버전:
+
+`HIKI Notifier 1.11c.zip`
+
+압축을 풀고:
+
+`HIKI Notifier.exe`
+
+를 실행하면 됩니다.
+
+별도의 설치 프로그램은 필요하지 않습니다.
+
+---
+
+## 개발 환경
+
+HIKI Notifier는 다음 환경을 기반으로 제작되었습니다.
+
+- C#
+- .NET Framework 4.8
+- Windows Forms
+- x64
+
+백그라운드에서 계속 실행되는 프로그램인 만큼  
+가볍고 단순하게 동작하는 것을 목표로 제작되었습니다.
+
+---
+
+## 버전
+
+현재 버전:
+
+**1.11c**
+
+---
+
+## 개발자
+
+**Eltax**
+
+---
+
+## Special Thanks
+
+### Hikimori Neko
+
+이 프로그램을 만들게 된 계기가 되어준 사람.
+
+---
+
+## 면책 고지
+
+HIKI Notifier는 비공식 팬메이드 유틸리티입니다.
+
+NAVER, CHZZK, YouTube, Google 또는 관련 운영사와 공식적으로 제휴하거나  
+승인받은 프로그램이 아닙니다.
+
+각 서비스명과 상표는 해당 권리자에게 귀속됩니다.
+
+서비스 측 API, 공개 피드 또는 웹 구조가 변경될 경우  
+일부 기능이 정상적으로 동작하지 않을 수 있습니다.
+
+---
+
+## 라이선스
+
+이 저장소에는 현재 별도의 오픈소스 라이선스가 제공되지 않습니다.
+
+**Copyright © Eltax. All rights reserved.**
+
+제3자 상표, 서비스명 및 외부 출처 자산은  
+각 권리자와 해당 라이선스 조건에 따릅니다.
