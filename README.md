@@ -4,12 +4,13 @@
 
 A lightweight Windows notification utility for multiple streaming platforms.
 
-**Supported platforms:** CHZZK · YouTube · Twitch · SOOP · CIME
+**Supported platforms:** CHZZK · YouTube · RPLAY · Twitch · SOOP · CIME
 
 ### Platform support
 
 - **CHZZK** — LIVE status, stream title, viewer count, and live notifications
 - **YouTube** — New video and Shorts notifications
+- **RPLAY** — LIVE status and live notifications
 - **Twitch** — LIVE status and live notifications
 - **SOOP** — LIVE status and live notifications
 - **CIME** — LIVE status, stream title, viewer information, and live notifications
@@ -422,12 +423,13 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 **HIKI Notifier**는 여러 스트리밍 플랫폼의 방송 및 새 콘텐츠를 확인하기 위한  
 가벼운 Windows용 알림 유틸리티입니다.
 
-**지원 플랫폼:** CHZZK · YouTube · Twitch · SOOP · CIME
+**지원 플랫폼:** CHZZK · YouTube · RPLAY · Twitch · SOOP · CIME
 
 ### 플랫폼별 지원 기능
 
 - **CHZZK** — 방송 상태, 방송 제목, 시청자 수 및 방송 시작 알림
 - **YouTube** — 새 영상 및 Shorts 알림
+- **RPLAY** — 방송 상태 및 방송 시작 알림
 - **Twitch** — 방송 상태 및 방송 시작 알림
 - **SOOP** — 방송 상태 및 방송 시작 알림
 - **CIME(씨미)** — 방송 상태, 방송 제목, 시청자 정보 및 방송 시작 알림
@@ -848,6 +850,7 @@ HIKI Notifier는 비공식 팬메이드 유틸리티입니다.
 
 - **チジジク（CHZZK）** — 配信状態、配信タイトル、視聴者数、配信開始通知
 - **ユーチューブ（YouTube）** — 新着動画・Shorts通知
+- **アルプレイ（RPLAY）** — 配信状態、配信開始通知
 - **ツイッチ（Twitch）** — 配信状態、配信開始通知
 - **スープ（SOOP）** — 配信状態、配信開始通知
 - **シーミ（CIME）** — 配信状態、配信タイトル、視聴者情報、配信開始通知
