@@ -4,7 +4,7 @@
 
 A lightweight Windows notification utility for multiple streaming platforms.
 
-**Supported platforms:** CHZZK · YouTube · RPLAY · Twitch · SOOP · CIME
+**Supported platforms:** CHZZK · YouTube · RPLAY · Twitch · SOOP · CIME · Kick
 
 ### Platform support
 
@@ -14,6 +14,7 @@ A lightweight Windows notification utility for multiple streaming platforms.
 - **Twitch** — LIVE status and live notifications
 - **SOOP** — LIVE status and live notifications
 - **CIME** — LIVE status, stream title, viewer information, and live notifications
+- **Kick** — LIVE status, stream title, viewer count, and live notifications
 
 HIKI Notifier includes a built-in **Hikimori Neko** profile with linked CHZZK and YouTube channels.  
 Additional streamer profiles and channels can also be registered manually.
@@ -25,9 +26,11 @@ No account login is required for supported platform monitoring.
 
 ---
 
-## Screenshot
+## Screenshots
 
-![HIKI Notifier English](img/1.16c_en.jpg)
+### Main Window
+
+![HIKI Notifier Main Window](img/1.20C%20main.jpg)
 
 ---
 
@@ -35,7 +38,7 @@ No account login is required for supported platform monitoring.
 
 - LIVE / OFFLINE / UNKNOWN status monitoring for supported live-stream platforms
 - Desktop notifications when registered channels go LIVE
-- Platform-dependent stream title and viewer information
+- Platform-dependent stream title, category, and viewer information
 - YouTube new video and Shorts notifications
 - Latest YouTube content title display
 - Built-in Hikimori Neko profile with CHZZK and YouTube channels
@@ -44,14 +47,18 @@ No account login is required for supported platform monitoring.
 - Per-channel notification ON / OFF
 - Optional per-channel automatic stream-page opening when a broadcast starts
 - Immediate one-time notification replay when alerts are re-enabled and relevant current information is available
-- Open streams or YouTube content directly from the notification window
-- System tray operation
-- Optional startup with Windows
+- Open streams or YouTube content by clicking the notification window
+- Per-profile notification appearance customization
+- JPG / JPEG / animated GIF notification backgrounds
+- Per-profile text color and outline color
+- Notification appearance test before saving
+- Adjustable notification display duration
+- Adjustable notification window opacity
 - Built-in notification sound
 - Custom WAV notification sound
 - Silent mode
-- Adjustable notification window opacity from 50% to 100%
-- Notification test from the Settings window
+- System tray operation
+- Optional startup with Windows
 - Dynamic INI language pack discovery
 - English, Korean, and Japanese language packs included
 - No account login required
@@ -62,11 +69,9 @@ No account login is required for supported platform monitoring.
 
 ### 1. Download and run
 
-Download the latest ZIP file from the **Releases** section.
+Download the latest ZIP file from:
 
-Current release:
-
-`HIKI Notifier 1.16c.zip`
+https://github.com/laikal/HIKI-Notifier/releases
 
 Extract the ZIP file to any folder and run:
 
@@ -84,7 +89,7 @@ It contains built-in CHZZK and YouTube channels.
 
 The built-in profile and its predefined channel addresses are protected from deletion or modification.
 
-Notification settings can still be enabled or disabled individually.
+Channel notification settings and notification appearance can still be changed.
 
 ---
 
@@ -92,23 +97,18 @@ Notification settings can still be enabled or disabled individually.
 
 Press **Add Profile** in the main window.
 
-Choose a supported platform and enter:
+Enter a streamer name, optional memo, and one or more supported channel URLs.
 
-- Streamer name
-- Optional memo
-- One or more linked channel URLs
-
-CHZZK example:
+Example:
 
 ```text
 https://chzzk.naver.com/live/CHANNEL_ID
-```
-
-YouTube example:
-
-```text
 https://www.youtube.com/@HANDLE
+https://www.twitch.tv/CHANNEL
+https://kick.com/CHANNEL
 ```
+
+Supported platform URLs are recognized automatically.
 
 A single streamer profile can contain multiple linked channels from supported platforms.
 
@@ -122,14 +122,12 @@ Depending on the platform, the notification can include:
 
 - Streamer name
 - Stream title
+- Category
 - Current viewer count
 
 For YouTube, HIKI Notifier can notify you when a new video or Shorts content is detected.
 
-The YouTube notification includes the content title and a button to open the content in your default browser.
-
-Only the explicit **Watch / Open** button opens the browser.  
-Clicking other parts of the notification window does not open a page.
+Clicking the notification window opens the relevant stream or content page in your default browser and closes the notification.
 
 ---
 
@@ -218,17 +216,50 @@ It does not automatically open a page simply because:
 
 ## Notification Appearance
 
-The notification window opacity can be adjusted from the Settings window.
+Each streamer profile can use its own notification appearance.
 
-Available range:
+![Customize Notification](img/1.20C%20CUSTOM%20Alert.jpg)
 
-`50% → 100%`
+Available appearance options include:
 
-The current value is displayed as a percentage.
+- Background image
+- Text color
+- Text outline color
+- Notification test
+- Reset appearance
 
-The setting applies to actual platform notifications and notification tests.
+Supported background formats:
 
-You can use **Notification Test** to preview the current appearance before saving the settings.
+- JPG
+- JPEG
+- GIF
+
+Background image requirements:
+
+- Exactly **480 × 270**
+- Maximum file size **15 MB**
+- Images are used at their original size without automatic resize, crop, or stretch
+- Animated GIF backgrounds repeat while the notification is visible
+
+The selected appearance is stored with the streamer profile, so different streamer profiles can use different notification backgrounds and colors.
+
+### Notification example
+
+![HIKI Notifier Notification](img/1.20C%20alret.jpg)
+
+The notification window uses a fixed 480 × 270 layout.
+
+Click anywhere on the notification to open the relevant stream or content page.
+
+---
+
+## Notification Display
+
+Notification display duration can be adjusted from **3 to 30 seconds**.
+
+Notification window opacity can be adjusted from **50% to 100%**.
+
+These display settings are global and apply to all streamer profiles.
 
 ---
 
@@ -303,6 +334,23 @@ This helps prevent incorrect state changes and repeated notifications caused by 
 
 ---
 
+## Profile Data and Backup
+
+Streamer profiles are stored separately under the `Profiles` folder.
+
+Global application settings are stored in `settings.json`.
+
+For a simple manual backup, close HIKI Notifier and back up:
+
+```text
+Profiles\
+settings.json
+```
+
+Profile appearance files are stored together with their profile data.
+
+---
+
 ## Languages
 
 HIKI Notifier includes:
@@ -319,19 +367,7 @@ Language files are automatically discovered from:
 lang\*.ini
 ```
 
-Each language pack identifies itself using metadata such as:
-
-```ini
-[Language]
-Name=日本語
-Code=ja
-```
-
-After a valid language file is added, it automatically appears in the language selection list.
-
 If a translation key is missing from an additional language pack, the English language pack is used as a fallback.
-
-This also allows users to create and share their own translations without modifying the program itself.
 
 ---
 
@@ -345,11 +381,9 @@ This also allows users to create and share their own translations without modify
 
 ## Download
 
-Download the latest version from the **Releases** section of this repository.
+Download the latest release from:
 
-Current release:
-
-`HIKI Notifier 1.16c.zip`
+https://github.com/laikal/HIKI-Notifier/releases
 
 Extract the ZIP file and run:
 
@@ -369,14 +403,6 @@ HIKI Notifier is built with:
 - x64
 
 The application is designed to remain lightweight while continuously monitoring registered channels in the background.
-
----
-
-## Version
-
-Current version:
-
-**1.16c**
 
 ---
 
@@ -423,7 +449,7 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 **HIKI Notifier**는 여러 스트리밍 플랫폼의 방송 및 새 콘텐츠를 확인하기 위한  
 가벼운 Windows용 알림 유틸리티입니다.
 
-**지원 플랫폼:** CHZZK · YouTube · RPLAY · Twitch · SOOP · CIME
+**지원 플랫폼:** CHZZK · YouTube · RPLAY · Twitch · SOOP · CIME · Kick
 
 ### 플랫폼별 지원 기능
 
@@ -433,8 +459,9 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 - **Twitch** — 방송 상태 및 방송 시작 알림
 - **SOOP** — 방송 상태 및 방송 시작 알림
 - **CIME(씨미)** — 방송 상태, 방송 제목, 시청자 정보 및 방송 시작 알림
+- **Kick** — 방송 상태, 방송 제목, 시청자 수 및 방송 시작 알림
 
-**Hikimori Neko**의 치지직 및 YouTube 채널이 연결된 기본 프로파일이 포함되어 있으며,  
+**Hikimori Neko**의 CHZZK 및 YouTube 채널이 연결된 기본 프로파일이 포함되어 있으며,  
 원하는 다른 스트리머와 채널도 직접 등록할 수 있습니다.
 
 지원 플랫폼의 방송 상태 확인에는 계정 로그인이 필요하지 않습니다.
@@ -446,7 +473,9 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 
 ## 스크린샷
 
-![HIKI Notifier 한국어](img/1.16c_kr.jpg)
+### 메인 화면
+
+![HIKI Notifier Main Window](img/1.20C%20main.jpg)
 
 ---
 
@@ -454,24 +483,27 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 
 - 지원 라이브 플랫폼의 LIVE / OFFLINE / UNKNOWN 상태 확인
 - 등록된 라이브 채널 방송 시작 시 데스크톱 알림
-- 플랫폼에 따라 방송 제목 및 현재 시청자 수 표시
+- 플랫폼에 따라 방송 제목, 카테고리 및 현재 시청자 수 표시
 - YouTube 새 영상 및 Shorts 알림
 - YouTube 최신 콘텐츠 제목 표시
-- Hikimori Neko 치지직 + YouTube 기본 프로파일
+- Hikimori Neko CHZZK + YouTube 기본 프로파일
 - 여러 스트리머 프로파일 등록
 - 하나의 스트리머에 여러 채널 연결
-- 스트리머별 메모 작성
 - 채널별 알림 ON / OFF
-- 채널별 **방송 시작 시 페이지 자동 열기** 옵션
-- 알림을 OFF → ON으로 다시 켰을 때 현재 유효한 알림을 즉시 1회 재표시
-- 알림창에서 방송 또는 YouTube 콘텐츠 바로 열기
-- 시스템 트레이 상주
-- Windows 시작 시 자동 실행 옵션
+- 채널별 방송 시작 시 페이지 자동 열기 옵션
+- 알림 OFF → ON 전환 시 현재 유효한 알림 1회 재표시
+- 알림창 클릭으로 방송 또는 YouTube 콘텐츠 바로 열기
+- 스트리머 프로파일별 알림창 꾸미기
+- JPG / JPEG / 움직이는 GIF 알림 배경
+- 프로파일별 글자 색 및 외곽선 색
+- 저장 전 알림창 테스트
+- 알림 표시 시간 조절
+- 알림창 투명도 조절
 - 프로그램 기본 알림음
 - 사용자 지정 WAV 알림음
 - 무음 모드
-- 알림창 투명도 50~100% 조절
-- 설정창 알림 테스트
+- 시스템 트레이 상주
+- Windows 시작 시 자동 실행 옵션
 - INI 언어팩 자동 인식
 - English / 한국어 / 日本語 언어팩 기본 제공
 - 계정 로그인 없이 사용 가능
@@ -482,11 +514,9 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 
 ### 1. 다운로드 및 실행
 
-이 저장소의 **Releases** 메뉴에서 최신 ZIP 파일을 다운로드합니다.
+최신 ZIP 파일은 다음 페이지에서 받을 수 있습니다.
 
-현재 배포 버전:
-
-`HIKI Notifier 1.16c.zip`
+https://github.com/laikal/HIKI-Notifier/releases
 
 원하는 폴더에 압축을 풀고:
 
@@ -502,11 +532,11 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 
 **Hikimori Neko** 프로파일은 프로그램에 기본으로 포함되어 있습니다.
 
-기본 프로파일에는 치지직과 YouTube 채널이 연결되어 있습니다.
+기본 프로파일에는 CHZZK과 YouTube 채널이 연결되어 있습니다.
 
 기본 프로파일과 기본 채널 주소는 삭제하거나 변경할 수 없습니다.
 
-각 채널의 알림 ON / OFF 설정은 자유롭게 변경할 수 있습니다.
+각 채널의 알림 설정과 알림창 꾸미기 설정은 변경할 수 있습니다.
 
 ---
 
@@ -514,23 +544,18 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 
 메인 화면에서 **프로파일 추가** 버튼을 누릅니다.
 
-지원 플랫폼을 선택한 뒤 다음 정보를 입력할 수 있습니다.
+스트리머 이름, 선택 사항인 메모, 하나 이상의 지원 채널 주소를 입력할 수 있습니다.
 
-- 스트리머 이름
-- 선택 사항인 메모
-- 하나 이상의 연결 채널 주소
-
-치지직 예:
+예:
 
 ```text
 https://chzzk.naver.com/live/CHANNEL_ID
-```
-
-YouTube 예:
-
-```text
 https://www.youtube.com/@HANDLE
+https://www.twitch.tv/CHANNEL
+https://kick.com/CHANNEL
 ```
+
+지원되는 플랫폼 주소는 자동으로 인식됩니다.
 
 하나의 스트리머 프로파일에 지원 플랫폼의 여러 채널을 연결할 수 있습니다.
 
@@ -544,14 +569,12 @@ https://www.youtube.com/@HANDLE
 
 - 스트리머 이름
 - 방송 제목
+- 카테고리
 - 현재 시청자 수
 
 YouTube에서는 새 영상 또는 Shorts가 확인되면 새 콘텐츠 알림이 표시됩니다.
 
-YouTube 알림에는 콘텐츠 제목과 해당 콘텐츠를 기본 브라우저에서 여는 버튼이 표시됩니다.
-
-브라우저는 명시적인 **보러가기 / 열기** 버튼을 눌렀을 때만 열립니다.  
-알림창의 다른 부분을 클릭해도 브라우저는 열리지 않습니다.
+알림창을 클릭하면 해당 방송 또는 콘텐츠 페이지가 기본 브라우저에서 열리고 알림창이 닫힙니다.
 
 ---
 
@@ -611,8 +634,7 @@ YouTube의 경우:
 
 - 현재 유효한 최신 콘텐츠 정보가 존재 → 최신 콘텐츠 알림 1회 재표시
 
-이 기능은 새로운 방송이나 콘텐츠를 다시 감지한 것으로 처리하지 않기 때문에  
-자동 알림 중복은 발생하지 않습니다.
+이 기능은 새로운 방송이나 콘텐츠를 다시 감지한 것으로 처리하지 않기 때문에 자동 알림 중복은 발생하지 않습니다.
 
 프로그램 시작 시 저장된 ON 상태를 복원하는 것만으로는 재알림하지 않습니다.
 
@@ -638,19 +660,53 @@ YouTube의 경우:
 
 ---
 
-## 알림창 설정
+## 알림창 꾸미기
 
-설정 화면에서 알림창의 투명도를 조절할 수 있습니다.
+각 스트리머 프로파일마다 서로 다른 알림창 꾸미기 설정을 사용할 수 있습니다.
 
-설정 범위:
+![Customize Notification](img/1.20C%20CUSTOM%20Alert.jpg)
 
-`50% → 100%`
+설정 가능한 항목:
 
-현재 선택값은 퍼센트로 표시됩니다.
+- 배경 이미지
+- 글자 색
+- 글자 외곽선 색
+- 알림창 테스트
+- 꾸미기 초기화
 
-설정값은 실제 플랫폼 알림과 알림 테스트에 동일하게 적용됩니다.
+지원하는 배경 이미지 형식:
 
-**알림 테스트**를 이용하면 설정을 저장하기 전에도 현재 알림창 표시 상태를 바로 확인할 수 있습니다.
+- JPG
+- JPEG
+- GIF
+
+배경 이미지 조건:
+
+- 정확히 **480 × 270**
+- 최대 **15 MB**
+- 자동 확대 / 축소 / 자르기 / 늘이기를 하지 않고 원본 크기로 사용
+- 움직이는 GIF는 알림창이 표시되는 동안 반복 재생
+
+선택한 꾸미기 설정은 스트리머 프로파일별로 저장되므로  
+스트리머마다 서로 다른 배경과 글자 색을 사용할 수 있습니다.
+
+### 알림창 예시
+
+![HIKI Notifier Notification](img/1.20C%20alret.jpg)
+
+알림창은 480 × 270 고정 레이아웃을 사용합니다.
+
+알림창 어디든 클릭하면 해당 방송 또는 콘텐츠 페이지를 열 수 있습니다.
+
+---
+
+## 알림 표시 설정
+
+알림 표시 시간은 **3초 ~ 30초** 범위에서 조절할 수 있습니다.
+
+알림창 투명도는 **50% ~ 100%** 범위에서 조절할 수 있습니다.
+
+이 설정은 전체 스트리머 프로파일에 공통으로 적용됩니다.
 
 ---
 
@@ -662,7 +718,7 @@ YouTube의 경우:
 - 사용자 지정 WAV
 - 무음
 
-설정 화면에서 원하는 알림 방식을 선택할 수 있습니다.
+알림음 설정은 설정 화면에서 변경할 수 있습니다.
 
 ---
 
@@ -689,6 +745,7 @@ YouTube 피드가 일시적으로 사용할 수 없는 경우에는 공개된 �
 트레이 메뉴에서는 다음과 같은 기능을 사용할 수 있습니다.
 
 - HIKI Notifier 열기
+- 사용 가능한 채널 기능 실행
 - 채널별 알림 ON / OFF
 - 사용 가능한 방송 / 콘텐츠 페이지 열기
 - 프로그램 정보
@@ -722,6 +779,23 @@ HIKI Notifier는 일정 간격으로 지원되는 라이브 플랫폼의 등록 
 
 ---
 
+## 프로파일 데이터와 백업
+
+스트리머 프로파일은 `Profiles` 폴더 아래에 개별 저장됩니다.
+
+프로그램 전체 공통 설정은 `settings.json`에 저장됩니다.
+
+간단히 백업하려면 HIKI Notifier를 종료한 뒤 다음 항목을 함께 보관하면 됩니다.
+
+```text
+Profiles\
+settings.json
+```
+
+알림창 배경 이미지 등 프로파일별 꾸미기 파일도 각 프로파일 데이터와 함께 저장됩니다.
+
+---
+
 ## 언어
 
 기본 제공 언어팩:
@@ -738,19 +812,7 @@ HIKI Notifier는 일정 간격으로 지원되는 라이브 플랫폼의 등록 
 lang\*.ini
 ```
 
-각 언어팩에는 다음과 같은 언어 정보가 포함됩니다.
-
-```ini
-[Language]
-Name=日本語
-Code=ja
-```
-
-유효한 언어팩을 `lang` 폴더에 추가하면 설정창의 언어 목록에 자동으로 표시됩니다.
-
 추가 언어팩에 특정 번역 항목이 없을 경우 English 언어팩을 기본값으로 사용합니다.
-
-이를 통해 프로그램 자체를 수정하지 않고도 사용자가 직접 번역 언어팩을 만들어 사용할 수 있습니다.
 
 ---
 
@@ -764,11 +826,9 @@ Code=ja
 
 ## 다운로드
 
-이 저장소의 **Releases** 메뉴에서 최신 버전을 받을 수 있습니다.
+최신 버전은 다음 페이지에서 받을 수 있습니다.
 
-현재 배포 버전:
-
-`HIKI Notifier 1.16c.zip`
+https://github.com/laikal/HIKI-Notifier/releases
 
 압축을 풀고:
 
@@ -790,14 +850,6 @@ HIKI Notifier는 다음 환경을 기반으로 제작되었습니다.
 - x64
 
 백그라운드에서 계속 실행되는 프로그램인 만큼 가볍고 단순하게 동작하는 것을 목표로 제작되었습니다.
-
----
-
-## 버전
-
-현재 버전:
-
-**1.16c**
 
 ---
 
@@ -844,16 +896,17 @@ HIKI Notifier는 비공식 팬메이드 유틸리티입니다.
 **HIKI Notifier** は、複数の配信プラットフォームの配信状況や新着コンテンツを確認できる、  
 軽量なWindows向け通知ユーティリティです。
 
-**対応プラットフォーム:** チジジク（CHZZK）・ユーチューブ（YouTube）・アルプレイ（RPLAY）・ツイッチ（Twitch）・スープ（SOOP）・シーミ（CIME）
+**対応プラットフォーム:** CHZZK · YouTube · RPLAY · Twitch · SOOP · CIME · Kick
 
 ### プラットフォーム別の対応機能
 
-- **チジジク（CHZZK）** — 配信状態、配信タイトル、視聴者数、配信開始通知
-- **ユーチューブ（YouTube）** — 新着動画・Shorts通知
-- **アルプレイ（RPLAY）** — 配信状態、配信開始通知
-- **ツイッチ（Twitch）** — 配信状態、配信開始通知
-- **スープ（SOOP）** — 配信状態、配信開始通知
-- **シーミ（CIME）** — 配信状態、配信タイトル、視聴者情報、配信開始通知
+- **CHZZK** — 配信状態、配信タイトル、視聴者数、配信開始通知
+- **YouTube** — 新着動画・Shorts通知
+- **RPLAY** — 配信状態、配信開始通知
+- **Twitch** — 配信状態、配信開始通知
+- **SOOP** — 配信状態、配信開始通知
+- **CIME** — 配信状態、配信タイトル、視聴者情報、配信開始通知
+- **Kick** — 配信状態、配信タイトル、視聴者数、配信開始通知
 
 **Hikimori Neko** のCHZZKおよびYouTubeチャンネルが登録された標準プロフィールが含まれており、  
 ほかの配信者やチャンネルも自由に追加できます。
@@ -867,7 +920,9 @@ HIKI Notifier는 비공식 팬메이드 유틸리티입니다.
 
 ## スクリーンショット
 
-![HIKI Notifier 日本語](img/1.16c_jp.jpg)
+### メイン画面
+
+![HIKI Notifier Main Window](img/1.20C%20main.jpg)
 
 ---
 
@@ -875,24 +930,27 @@ HIKI Notifier는 비공식 팬메이드 유틸리티입니다.
 
 - 対応ライブ配信プラットフォームのLIVE / OFFLINE / UNKNOWN状態を確認
 - 登録したライブ配信チャンネルの配信開始時にデスクトップ通知
-- プラットフォームに応じて配信タイトルや現在の視聴者数を表示
+- プラットフォームに応じて配信タイトル、カテゴリ、現在の視聴者数を表示
 - YouTubeの新着動画・Shorts通知
 - YouTubeの最新コンテンツタイトル表示
 - Hikimori NekoのCHZZK + YouTube標準プロフィール
 - 複数の配信者プロフィールを登録可能
 - 1つのプロフィールに複数のチャンネルを登録可能
-- プロフィールごとのメモ
 - チャンネルごとの通知ON / OFF
-- チャンネルごとの**配信開始時にページを自動で開く**オプション
-- 通知をOFF → ONに戻した際、現在有効な通知を1回だけ即時表示
-- 通知ウィンドウから配信・YouTubeコンテンツを開く
-- システムトレイ常駐
-- Windows起動時の自動実行
+- チャンネルごとの配信開始時ページ自動オープン
+- 通知をOFF → ONに戻した際、現在有効な通知を1回だけ再表示
+- 通知ウィンドウをクリックして配信・YouTubeコンテンツを開く
+- プロフィールごとの通知外観カスタマイズ
+- JPG / JPEG / アニメーションGIF通知背景
+- プロフィールごとの文字色・アウトライン色
+- 保存前の通知テスト
+- 通知表示時間の調整
+- 通知ウィンドウ透明度の調整
 - 内蔵通知音
 - カスタムWAV通知音
 - 無音モード
-- 通知ウィンドウの透明度を50～100%で調整
-- 設定画面から通知テスト
+- システムトレイ常駐
+- Windows起動時の自動実行
 - INI言語パックの自動認識
 - English / 한국어 / 日本語 の言語パックを標準搭載
 - アカウントログイン不要
@@ -903,11 +961,9 @@ HIKI Notifier는 비공식 팬메이드 유틸리티입니다.
 
 ### 1. ダウンロードと起動
 
-このリポジトリの **Releases** から最新のZIPファイルをダウンロードします。
+最新版は次のページからダウンロードできます。
 
-現在の配布バージョン:
-
-`HIKI Notifier 1.16c.zip`
+https://github.com/laikal/HIKI-Notifier/releases
 
 ZIPファイルを任意のフォルダーに展開し、
 
@@ -927,7 +983,7 @@ ZIPファイルを任意のフォルダーに展開し、
 
 標準プロフィールおよびあらかじめ登録されたチャンネルURLは削除・変更できません。
 
-各チャンネルの通知ON / OFFは個別に変更できます。
+各チャンネルの通知設定と通知外観は変更できます。
 
 ---
 
@@ -935,25 +991,20 @@ ZIPファイルを任意のフォルダーに展開し、
 
 メイン画面で **プロフィール追加** を選択します。
 
-対応プラットフォームを選び、以下の情報を入力できます。
+配信者名、任意のメモ、1つ以上の対応チャンネルURLを入力できます。
 
-- 配信者名
-- 任意のメモ
-- 1つ以上のチャンネルURL
-
-CHZZKの例:
+例:
 
 ```text
 https://chzzk.naver.com/live/CHANNEL_ID
-```
-
-YouTubeの例:
-
-```text
 https://www.youtube.com/@HANDLE
+https://www.twitch.tv/CHANNEL
+https://kick.com/CHANNEL
 ```
 
-1つの配信者プロフィールに、対応プラットフォームの複数チャンネルを登録できます。
+対応しているプラットフォームURLは自動的に認識されます。
+
+1つの配信者プロフィールに複数の対応チャンネルを登録できます。
 
 ---
 
@@ -961,18 +1012,16 @@ https://www.youtube.com/@HANDLE
 
 対応するライブ配信プラットフォームで登録チャンネルが配信を開始すると、デスクトップ通知が表示されます。
 
-プラットフォームによって、通知には次の情報が表示されます。
+プラットフォームによって、次の情報が表示されます。
 
 - 配信者名
 - 配信タイトル
+- カテゴリ
 - 現在の視聴者数
 
 YouTubeでは、新しい動画またはShortsが検出された場合に新着コンテンツ通知を表示できます。
 
-YouTube通知にはコンテンツタイトルと、既定のブラウザーでコンテンツを開くボタンが表示されます。
-
-ブラウザーを開くのは明示的な **視聴 / 開く** ボタンを押した場合のみです。  
-通知ウィンドウのほかの部分をクリックしてもページは開きません。
+通知ウィンドウをクリックすると、対象の配信またはコンテンツページを既定のブラウザーで開き、通知ウィンドウを閉じます。
 
 ---
 
@@ -1032,7 +1081,7 @@ YouTubeの場合:
 
 - 有効な最新コンテンツ情報がすでにある場合 → 最新コンテンツ通知を1回表示
 
-この再表示は、配信や動画を新しく検出したものとして扱わないため、自動通知が重複することはありません。
+この再表示は配信や動画を新しく検出したものとして扱わないため、自動通知が重複することはありません。
 
 アプリ起動時に保存済みの通知ON状態を復元しただけでは、再通知は行いません。
 
@@ -1040,7 +1089,7 @@ YouTubeの場合:
 
 ## 配信開始時にページを自動で開く
 
-対応ライブチャンネルごとに、配信開始時に配信ページを自動で開くよう設定できます。
+対応ライブチャンネルごとに、配信開始時に配信ページを自動的に開くよう設定できます。
 
 この設定はチャンネルごとに管理され、初期状態ではOFFです。
 
@@ -1058,19 +1107,53 @@ YouTubeの場合:
 
 ---
 
-## 通知ウィンドウ設定
+## 通知ウィンドウのカスタマイズ
 
-設定画面から通知ウィンドウの透明度を調整できます。
+配信者プロフィールごとに異なる通知外観を設定できます。
 
-設定範囲:
+![Customize Notification](img/1.20C%20CUSTOM%20Alert.jpg)
 
-`50% → 100%`
+設定項目:
 
-現在の値はパーセントで表示されます。
+- 背景画像
+- 文字色
+- 文字アウトライン色
+- 通知テスト
+- 外観リセット
 
-この設定は実際のプラットフォーム通知と通知テストの両方に適用されます。
+対応する背景画像形式:
 
-**通知テスト** を使うと、設定を保存する前に現在の表示を確認できます。
+- JPG
+- JPEG
+- GIF
+
+背景画像の条件:
+
+- 正確に **480 × 270**
+- 最大 **15 MB**
+- 自動リサイズ、クロップ、ストレッチは行わず元のサイズで使用
+- アニメーションGIFは通知が表示されている間繰り返し再生
+
+選択した外観はプロフィールごとに保存されるため、  
+配信者ごとに異なる背景や文字色を使用できます。
+
+### 通知例
+
+![HIKI Notifier Notification](img/1.20C%20alret.jpg)
+
+通知ウィンドウは480 × 270の固定レイアウトを使用します。
+
+通知ウィンドウのどこをクリックしても対象の配信またはコンテンツページを開けます。
+
+---
+
+## 通知表示設定
+
+通知表示時間は **3秒～30秒** の範囲で調整できます。
+
+通知ウィンドウの透明度は **50%～100%** の範囲で調整できます。
+
+これらはすべての配信者プロフィールに共通して適用されます。
 
 ---
 
@@ -1092,11 +1175,11 @@ HIKI NotifierはGoogleまたはYouTubeへのログインなしで、新しく公
 
 通常は軽量な公開YouTubeフィードを優先して使用します。
 
-フィードが一時的に利用できない場合は、公開されているチャンネルの **動画** および **Shorts** ページを補助的に確認し、公開情報から新着コンテンツを検出できます。
+フィードが一時的に利用できない場合は、公開されているチャンネルの **動画** および **Shorts** ページを補助的に確認できます。
 
 処理済みのvideoIdを保持し、通常のフィードが復旧したあとも同じコンテンツを重複通知しないようにします。
 
-この機能はYouTubeの公開フィードやWebページ構造を利用しているため、将来YouTube側の仕様が変更された場合はHIKI Notifierの更新が必要になることがあります。
+この機能はYouTubeの公開フィードやWebページ構造を利用しているため、将来YouTube側の仕様が変更された場合は更新が必要になることがあります。
 
 ---
 
@@ -1109,6 +1192,7 @@ HIKI NotifierはGoogleまたはYouTubeへのログインなしで、新しく公
 トレイメニューからは次の操作ができます。
 
 - HIKI Notifierを開く
+- 利用可能なチャンネル操作
 - チャンネルごとの通知ON / OFF
 - 利用可能な配信 / コンテンツページを開く
 - プログラム情報を開く
@@ -1142,6 +1226,23 @@ HIKI Notifierは一定間隔で、対応ライブ配信プラットフォーム�
 
 ---
 
+## プロフィールデータとバックアップ
+
+配信者プロフィールは `Profiles` フォルダー内に個別保存されます。
+
+アプリ全体の設定は `settings.json` に保存されます。
+
+簡単にバックアップする場合は、HIKI Notifierを終了して次の項目を保存してください。
+
+```text
+Profiles\
+settings.json
+```
+
+通知背景画像などのプロフィール外観ファイルもプロフィールデータと一緒に保存されます。
+
+---
+
 ## 言語
 
 標準で以下の言語パックが含まれています。
@@ -1158,19 +1259,7 @@ HIKI Notifierは一定間隔で、対応ライブ配信プラットフォーム�
 lang\*.ini
 ```
 
-各言語パックは、次のようなメタデータで言語情報を指定します。
-
-```ini
-[Language]
-Name=日本語
-Code=ja
-```
-
-有効な言語ファイルを `lang` フォルダーに追加すると、設定画面の言語一覧に自動表示されます。
-
 追加言語パックに翻訳項目が存在しない場合は、英語の言語パックをフォールバックとして使用します。
-
-プログラム本体を変更せずに、ユーザー自身が翻訳言語パックを作成・共有することもできます。
 
 ---
 
@@ -1184,11 +1273,9 @@ Code=ja
 
 ## ダウンロード
 
-このリポジトリの **Releases** から最新版をダウンロードできます。
+最新版は次のページからダウンロードできます。
 
-現在の配布バージョン:
-
-`HIKI Notifier 1.16c.zip`
+https://github.com/laikal/HIKI-Notifier/releases
 
 ZIPファイルを展開して、
 
@@ -1210,14 +1297,6 @@ HIKI Notifierは以下の環境で開発されています。
 - x64
 
 登録チャンネルをバックグラウンドで継続的に確認する常駐アプリとして、軽量でシンプルに動作することを目標にしています。
-
----
-
-## バージョン
-
-現在のバージョン:
-
-**1.16c**
 
 ---
 
