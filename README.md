@@ -4,7 +4,7 @@
 
 A lightweight Windows notification utility for multiple streaming platforms.
 
-**Supported platforms:** CHZZK · YouTube · RPLAY · Twitch · SOOP · CIME · Kick
+**Supported platforms:** CHZZK · YouTube · RPLAY · Twitch · SOOP · CIME · Kick · TwitCasting
 
 ### Platform support
 
@@ -15,9 +15,10 @@ A lightweight Windows notification utility for multiple streaming platforms.
 - **SOOP** — LIVE status and live notifications
 - **CIME** — LIVE status, stream title, viewer information, and live notifications
 - **Kick** — LIVE status, stream title, viewer count, and live notifications
+- **TwitCasting** — LIVE status, stream title, and live notifications
 
-HIKI Notifier includes a built-in **Hikimori Neko** profile with linked CHZZK and YouTube channels.  
-Additional streamer profiles and channels can also be registered manually.
+HIKI Notifier includes a built-in **Hikimori Neko** profile with one CHZZK channel and two YouTube channels.  
+Additional streamer profiles and channels can also be registered manually, including multiple channels from the same platform.
 
 No account login is required for supported platform monitoring.
 
@@ -28,9 +29,13 @@ No account login is required for supported platform monitoring.
 
 ## Screenshots
 
-### Main Window
+### Main Window — Standard Theme
 
-![HIKI Notifier Main Window](img/1.20C%20main.jpg)
+![HIKI Notifier Main Window - Standard Theme](img/1.25C_MAIN_NO_SKIN_EN.jpg)
+
+### Main Window — Dark Theme
+
+![HIKI Notifier Main Window - Dark Theme](img/1.25C_MAIN_SKIN_EN.jpg)
 
 ---
 
@@ -41,9 +46,9 @@ No account login is required for supported platform monitoring.
 - Platform-dependent stream title, category, and viewer information
 - YouTube new video and Shorts notifications
 - Latest YouTube content title display
-- Built-in Hikimori Neko profile with CHZZK and YouTube channels
+- Built-in Hikimori Neko profile with 1 CHZZK + 2 YouTube channels
 - Multiple streamer profiles
-- Multiple linked channels per streamer profile
+- Multiple linked channels per streamer profile, including multiple channels from the same platform
 - Per-channel notification ON / OFF
 - Optional per-channel automatic stream-page opening when a broadcast starts
 - Immediate one-time notification replay when alerts are re-enabled and relevant current information is available
@@ -51,9 +56,11 @@ No account login is required for supported platform monitoring.
 - Per-profile notification appearance customization
 - JPG / JPEG / animated GIF notification backgrounds
 - Per-profile text color and outline color
+- Global header/content font size controls in the notification appearance window
+- Adjustable notification display duration and window opacity in the notification appearance window
 - Notification appearance test before saving
-- Adjustable notification display duration
-- Adjustable notification window opacity
+- Standard and dark Main Window themes
+- Categorized built-in Help window with a topic list and scrollable details
 - Built-in notification sound
 - Custom WAV notification sound
 - Silent mode
@@ -85,7 +92,7 @@ No installer is required.
 
 The **Hikimori Neko** profile is included automatically.
 
-It contains built-in CHZZK and YouTube channels.
+It contains one built-in CHZZK channel and two built-in YouTube channels, including the Hikimori Neko replay channel.
 
 The built-in profile and its predefined channel addresses are protected from deletion or modification.
 
@@ -106,11 +113,12 @@ https://chzzk.naver.com/live/CHANNEL_ID
 https://www.youtube.com/@HANDLE
 https://www.twitch.tv/CHANNEL
 https://kick.com/CHANNEL
+https://twitcasting.tv/CHANNEL
 ```
 
 Supported platform URLs are recognized automatically.
 
-A single streamer profile can contain multiple linked channels from supported platforms.
+A single streamer profile can contain multiple linked channels from supported platforms, including multiple different channels from the same platform.
 
 ---
 
@@ -147,20 +155,30 @@ Select a channel row to use the actions available for that channel.
 
 Notification settings can also be changed from the profile editor and the system tray menu.
 
+### Main Window themes
+
+The Main Window provides two color themes:
+
+- **Standard** — the original light HIKI Notifier appearance
+- **Dark** — a dark color theme for low-light use
+
+The theme can be changed from **Settings** and is applied to the Main Window.
+
 ---
 
 ## Streamer Profiles
 
 Profiles are organized by streamer rather than by individual platform.
 
-One streamer profile can contain multiple linked channels.
+One streamer profile can contain multiple linked channels, and v1.25C also allows multiple different channels from the same platform in a single profile.
 
 For example:
 
 ```text
 Hikimori Neko
 ├─ CHZZK
-└─ YouTube
+├─ YouTube — Main
+└─ YouTube — Replay
 ```
 
 Each profile can also contain a memo for personal identification or notes.
@@ -218,15 +236,22 @@ It does not automatically open a page simply because:
 
 Each streamer profile can use its own notification appearance.
 
-![Customize Notification](img/1.20C%20CUSTOM%20Alert.jpg)
+![Customize Notification](img/1.25C_CUSTOM%20Alert_EN.jpg)
 
 Available appearance options include:
 
+**Per-profile settings**
 - Background image
 - Text color
 - Text outline color
-- Notification test
-- Reset appearance
+
+**Shared settings for all notifications**
+- Header font size
+- Content font size
+- Notification opacity
+- Notification duration
+
+You can test unsaved temporary values before saving. **Reset appearance** resets the values shown in the window first; the reset is not committed until **Save** is pressed.
 
 Supported background formats:
 
@@ -245,7 +270,7 @@ The selected appearance is stored with the streamer profile, so different stream
 
 ### Notification example
 
-![HIKI Notifier Notification](img/1.20C%20alret.jpg)
+![HIKI Notifier Notification](img/1.25c_Alert_Sample.jpg)
 
 The notification window uses a fixed 480 × 270 layout.
 
@@ -259,7 +284,11 @@ Notification display duration can be adjusted from **3 to 30 seconds**.
 
 Notification window opacity can be adjusted from **50% to 100%**.
 
-These display settings are global and apply to all streamer profiles.
+Header font size can be adjusted from **12 to 20 pt**, and content font size from **10 to 16 pt**.
+
+These shared settings are available together in **Customize Notification** and apply to all streamer profiles. Background images and text/outline colors remain profile-specific.
+
+The v1.25C notification layout uses a dark translucent scrim only behind the text area, a subtle fixed shadow, and an outline to keep text readable over custom JPG/JPEG/GIF backgrounds. The platform logo is followed by the streamer/start message, category and viewer information when available, and a title of up to two lines.
 
 ---
 
@@ -286,6 +315,14 @@ If the feed is temporarily unavailable, HIKI Notifier can fall back to the chann
 Previously processed video IDs are retained to prevent duplicate notifications, including after the normal feed becomes available again.
 
 Because this feature depends on public YouTube feeds and page structures, future changes made by YouTube may require updates to HIKI Notifier.
+
+---
+
+## Built-in Help
+
+v1.25C includes a reorganized Help window.
+
+Topics are listed on the left, while the selected topic is shown in a scrollable detail area on the right. It covers setup, profiles, supported platforms, notifications, Auto Open, notification appearance, backup, troubleshooting, and other common usage topics.
 
 ---
 
@@ -449,7 +486,7 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 **HIKI Notifier**는 여러 스트리밍 플랫폼의 방송 및 새 콘텐츠를 확인하기 위한  
 가벼운 Windows용 알림 유틸리티입니다.
 
-**지원 플랫폼:** CHZZK · YouTube · RPLAY · Twitch · SOOP · CIME · Kick
+**지원 플랫폼:** CHZZK · YouTube · RPLAY · Twitch · SOOP · CIME · Kick · TwitCasting
 
 ### 플랫폼별 지원 기능
 
@@ -460,9 +497,10 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 - **SOOP** — 방송 상태 및 방송 시작 알림
 - **CIME(씨미)** — 방송 상태, 방송 제목, 시청자 정보 및 방송 시작 알림
 - **Kick** — 방송 상태, 방송 제목, 시청자 수 및 방송 시작 알림
+- **TwitCasting** — 방송 상태, 방송 제목 및 방송 시작 알림
 
-**Hikimori Neko**의 CHZZK 및 YouTube 채널이 연결된 기본 프로파일이 포함되어 있으며,  
-원하는 다른 스트리머와 채널도 직접 등록할 수 있습니다.
+**Hikimori Neko**의 CHZZK 1개와 YouTube 2개 채널이 연결된 기본 프로파일이 포함되어 있으며,  
+원하는 다른 스트리머와 채널도 직접 등록할 수 있습니다. 같은 플랫폼의 서로 다른 채널도 한 프로파일에 여러 개 등록할 수 있습니다.
 
 지원 플랫폼의 방송 상태 확인에는 계정 로그인이 필요하지 않습니다.
 
@@ -473,9 +511,13 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 
 ## 스크린샷
 
-### 메인 화면
+### 메인 화면 — 기본 테마
 
-![HIKI Notifier Main Window](img/1.20C%20main.jpg)
+![HIKI Notifier Main Window - Standard Theme](img/1.25C_MAIN_NO_SKIN_KR.jpg)
+
+### 메인 화면 — 다크 테마
+
+![HIKI Notifier Main Window - Dark Theme](img/1.25C_MAIN_SKIN_KR.jpg)
 
 ---
 
@@ -486,9 +528,9 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 - 플랫폼에 따라 방송 제목, 카테고리 및 현재 시청자 수 표시
 - YouTube 새 영상 및 Shorts 알림
 - YouTube 최신 콘텐츠 제목 표시
-- Hikimori Neko CHZZK + YouTube 기본 프로파일
+- Hikimori Neko CHZZK 1개 + YouTube 2개 기본 프로파일
 - 여러 스트리머 프로파일 등록
-- 하나의 스트리머에 여러 채널 연결
+- 하나의 스트리머에 여러 채널 연결 및 동일 플랫폼의 서로 다른 채널 복수 등록
 - 채널별 알림 ON / OFF
 - 채널별 방송 시작 시 페이지 자동 열기 옵션
 - 알림 OFF → ON 전환 시 현재 유효한 알림 1회 재표시
@@ -496,9 +538,11 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 - 스트리머 프로파일별 알림창 꾸미기
 - JPG / JPEG / 움직이는 GIF 알림 배경
 - 프로파일별 글자 색 및 외곽선 색
+- 알림창 꾸미기에서 전체 공통 헤더/본문 글자 크기 조절
+- 알림창 꾸미기에서 알림 표시 시간 및 투명도 조절
 - 저장 전 알림창 테스트
-- 알림 표시 시간 조절
-- 알림창 투명도 조절
+- 메인 화면 기본/다크 테마
+- 왼쪽 주제 목록 + 오른쪽 스크롤 설명 방식의 새 사용 방법 창
 - 프로그램 기본 알림음
 - 사용자 지정 WAV 알림음
 - 무음 모드
@@ -532,7 +576,7 @@ https://github.com/laikal/HIKI-Notifier/releases
 
 **Hikimori Neko** 프로파일은 프로그램에 기본으로 포함되어 있습니다.
 
-기본 프로파일에는 CHZZK과 YouTube 채널이 연결되어 있습니다.
+기본 프로파일에는 CHZZK 1개와 YouTube 2개 채널이 연결되어 있으며, YouTube 다시보기 채널도 포함됩니다.
 
 기본 프로파일과 기본 채널 주소는 삭제하거나 변경할 수 없습니다.
 
@@ -553,11 +597,12 @@ https://chzzk.naver.com/live/CHANNEL_ID
 https://www.youtube.com/@HANDLE
 https://www.twitch.tv/CHANNEL
 https://kick.com/CHANNEL
+https://twitcasting.tv/CHANNEL
 ```
 
 지원되는 플랫폼 주소는 자동으로 인식됩니다.
 
-하나의 스트리머 프로파일에 지원 플랫폼의 여러 채널을 연결할 수 있습니다.
+하나의 스트리머 프로파일에 지원 플랫폼의 여러 채널을 연결할 수 있으며, 같은 플랫폼의 서로 다른 채널도 여러 개 등록할 수 있습니다.
 
 ---
 
@@ -594,19 +639,29 @@ YouTube에서는 새 영상 또는 Shorts가 확인되면 새 콘텐츠 알림�
 
 알림 설정은 프로파일 편집창과 시스템 트레이에서도 변경할 수 있습니다.
 
+### 메인 화면 테마
+
+메인 화면은 두 가지 색상 테마를 지원합니다.
+
+- **기본** — 기존 HIKI Notifier의 밝은 화면
+- **다크** — 어두운 환경에서 사용하기 좋은 다크 테마
+
+테마는 **설정**에서 변경할 수 있으며 메인 화면에 적용됩니다.
+
 ---
 
 ## 스트리머 프로파일
 
 HIKI Notifier는 플랫폼마다 별도의 프로파일을 만드는 대신  
-하나의 스트리머 아래 여러 채널을 연결하는 구조를 사용합니다.
+하나의 스트리머 아래 여러 채널을 연결하는 구조를 사용하며, v1.25C부터 같은 플랫폼의 서로 다른 채널도 한 프로파일에 여러 개 등록할 수 있습니다.
 
 예:
 
 ```text
 Hikimori Neko
 ├─ CHZZK
-└─ YouTube
+├─ YouTube — 메인
+└─ YouTube — 다시보기
 ```
 
 프로파일에는 스트리머를 구분하기 위한 메모도 작성할 수 있습니다.
@@ -664,15 +719,22 @@ YouTube의 경우:
 
 각 스트리머 프로파일마다 서로 다른 알림창 꾸미기 설정을 사용할 수 있습니다.
 
-![Customize Notification](img/1.20C%20CUSTOM%20Alert.jpg)
+![알림창 꾸미기](img/1.25C_CUSTOM%20Alert_KR.jpg)
 
 설정 가능한 항목:
 
+**프로파일별 설정**
 - 배경 이미지
 - 글자 색
 - 글자 외곽선 색
-- 알림창 테스트
-- 꾸미기 초기화
+
+**전체 알림창 공통 설정**
+- 헤더 글자 크기
+- 본문 글자 크기
+- 알림창 투명도
+- 알림 표시 시간
+
+저장하지 않은 임시값으로도 **알림창 테스트**가 가능하며, **초기화**는 먼저 화면의 임시값만 기본값으로 바꿉니다. 실제 저장은 **저장** 버튼을 눌렀을 때 적용됩니다.
 
 지원하는 배경 이미지 형식:
 
@@ -692,7 +754,7 @@ YouTube의 경우:
 
 ### 알림창 예시
 
-![HIKI Notifier Notification](img/1.20C%20alret.jpg)
+![HIKI Notifier Notification](img/1.25c_Alert_Sample.jpg)
 
 알림창은 480 × 270 고정 레이아웃을 사용합니다.
 
@@ -706,7 +768,11 @@ YouTube의 경우:
 
 알림창 투명도는 **50% ~ 100%** 범위에서 조절할 수 있습니다.
 
-이 설정은 전체 스트리머 프로파일에 공통으로 적용됩니다.
+헤더 글자 크기는 **12 ~ 20 pt**, 본문 글자 크기는 **10 ~ 16 pt** 범위에서 조절할 수 있습니다.
+
+이 공통 설정들은 **알림창 꾸미기** 화면 한곳에서 관리하며 전체 스트리머 프로파일에 적용됩니다. 배경 이미지와 글자/외곽선 색은 기존처럼 프로파일별 설정입니다.
+
+v1.25C 알림창은 사용자 배경 위에서도 글자를 읽기 쉽도록 텍스트 영역에만 어두운 반투명 scrim, 약한 고정 그림자, 외곽선을 사용합니다. 플랫폼 로고 다음에 스트리머명/시작 문구, 가능한 경우 카테고리와 시청자 수, 최대 2줄의 제목 순서로 표시합니다.
 
 ---
 
@@ -733,6 +799,14 @@ YouTube 피드가 일시적으로 사용할 수 없는 경우에는 공개된 �
 이미 처리한 videoId를 기록하여 같은 콘텐츠가 반복해서 알림되는 것을 방지하며, 정상 피드가 다시 복구된 이후에도 같은 콘텐츠를 다시 알리지 않습니다.
 
 이 기능은 YouTube에서 공개하는 피드 및 웹 페이지 구조를 이용하기 때문에 향후 YouTube 측 구조 변경에 따라 업데이트가 필요할 수 있습니다.
+
+---
+
+## 사용 방법
+
+v1.25C에서는 사용 방법 화면을 주제별 도움말 방식으로 개편했습니다.
+
+왼쪽에서 항목을 선택하면 오른쪽 스크롤 영역에 자세한 설명이 표시됩니다. 빠른 시작, 프로파일, 채널 추가, 지원 플랫폼, 알림, 자동 열기, 알림창 꾸미기, 백업, 문제 해결 등 주요 사용법을 프로그램 안에서 확인할 수 있습니다.
 
 ---
 
@@ -896,7 +970,7 @@ HIKI Notifier는 비공식 팬메이드 유틸리티입니다.
 **HIKI Notifier** は、複数の配信プラットフォームの配信状況や新着コンテンツを確認できる、  
 軽量なWindows向け通知ユーティリティです。
 
-**対応プラットフォーム:** CHZZK · YouTube · RPLAY · Twitch · SOOP · CIME · Kick
+**対応プラットフォーム:** CHZZK · YouTube · RPLAY · Twitch · SOOP · CIME · Kick · TwitCasting
 
 ### プラットフォーム別の対応機能
 
@@ -907,9 +981,10 @@ HIKI Notifier는 비공식 팬메이드 유틸리티입니다.
 - **SOOP** — 配信状態、配信開始通知
 - **CIME** — 配信状態、配信タイトル、視聴者情報、配信開始通知
 - **Kick** — 配信状態、配信タイトル、視聴者数、配信開始通知
+- **TwitCasting** — 配信状態、配信タイトル、配信開始通知
 
-**Hikimori Neko** のCHZZKおよびYouTubeチャンネルが登録された標準プロフィールが含まれており、  
-ほかの配信者やチャンネルも自由に追加できます。
+**Hikimori Neko** のCHZZK 1チャンネルとYouTube 2チャンネルが登録された標準プロフィールが含まれており、  
+ほかの配信者やチャンネルも自由に追加できます。同じプラットフォームの別チャンネルも1つのプロフィールに複数登録できます。
 
 対応プラットフォームの配信状況を確認するために、ユーザーによるログインは必要ありません。
 
@@ -920,9 +995,13 @@ HIKI Notifier는 비공식 팬메이드 유틸리티입니다.
 
 ## スクリーンショット
 
-### メイン画面
+### メイン画面 — 標準テーマ
 
-![HIKI Notifier Main Window](img/1.20C%20main.jpg)
+![HIKI Notifier Main Window - Standard Theme](img/1.25C_MAIN_NO_SKIN_EN.jpg)
+
+### メイン画面 — ダークテーマ
+
+![HIKI Notifier Main Window - Dark Theme](img/1.25C_MAIN_SKIN_EN.jpg)
 
 ---
 
@@ -933,9 +1012,9 @@ HIKI Notifier는 비공식 팬메이드 유틸리티입니다.
 - プラットフォームに応じて配信タイトル、カテゴリ、現在の視聴者数を表示
 - YouTubeの新着動画・Shorts通知
 - YouTubeの最新コンテンツタイトル表示
-- Hikimori NekoのCHZZK + YouTube標準プロフィール
+- Hikimori NekoのCHZZK 1チャンネル + YouTube 2チャンネル標準プロフィール
 - 複数の配信者プロフィールを登録可能
-- 1つのプロフィールに複数のチャンネルを登録可能
+- 1つのプロフィールに複数のチャンネルを登録可能（同一プラットフォームの別チャンネルも可）
 - チャンネルごとの通知ON / OFF
 - チャンネルごとの配信開始時ページ自動オープン
 - 通知をOFF → ONに戻した際、現在有効な通知を1回だけ再表示
@@ -943,9 +1022,11 @@ HIKI Notifier는 비공식 팬메이드 유틸리티입니다.
 - プロフィールごとの通知外観カスタマイズ
 - JPG / JPEG / アニメーションGIF通知背景
 - プロフィールごとの文字色・アウトライン色
+- 通知カスタマイズ画面で共通のヘッダー/本文フォントサイズを調整
+- 通知カスタマイズ画面で表示時間・透明度を調整
 - 保存前の通知テスト
-- 通知表示時間の調整
-- 通知ウィンドウ透明度の調整
+- メイン画面の標準/ダークテーマ
+- 左側のトピック一覧 + 右側のスクロール説明による新しいヘルプ画面
 - 内蔵通知音
 - カスタムWAV通知音
 - 無音モード
@@ -979,7 +1060,7 @@ ZIPファイルを任意のフォルダーに展開し、
 
 **Hikimori Neko** のプロフィールは最初から登録されています。
 
-標準プロフィールにはCHZZKとYouTubeチャンネルが登録されています。
+標準プロフィールにはCHZZK 1チャンネルとYouTube 2チャンネルが登録されており、Hikimori Nekoのアーカイブ用YouTubeチャンネルも含まれます。
 
 標準プロフィールおよびあらかじめ登録されたチャンネルURLは削除・変更できません。
 
@@ -1000,11 +1081,12 @@ https://chzzk.naver.com/live/CHANNEL_ID
 https://www.youtube.com/@HANDLE
 https://www.twitch.tv/CHANNEL
 https://kick.com/CHANNEL
+https://twitcasting.tv/CHANNEL
 ```
 
 対応しているプラットフォームURLは自動的に認識されます。
 
-1つの配信者プロフィールに複数の対応チャンネルを登録できます。
+1つの配信者プロフィールに複数の対応チャンネルを登録でき、同じプラットフォームの別チャンネルも複数登録できます。
 
 ---
 
@@ -1041,19 +1123,29 @@ YouTubeでは、新しい動画またはShortsが検出された場合に新着�
 
 通知設定はプロフィール編集画面やシステムトレイからも変更できます。
 
+### メイン画面テーマ
+
+メイン画面では2種類のカラーテーマを利用できます。
+
+- **標準** — 従来の明るいHIKI Notifierデザイン
+- **ダーク** — 暗い環境でも使いやすいダークテーマ
+
+テーマは **設定** から変更でき、メイン画面に反映されます。
+
 ---
 
 ## 配信者プロフィール
 
 HIKI Notifierでは、プラットフォームごとに別のプロフィールを作るのではなく、  
-1人の配信者の下に複数のチャンネルをまとめて登録します。
+1人の配信者の下に複数のチャンネルをまとめて登録し、v1.25Cからは同じプラットフォームの別チャンネルも1つのプロフィールに複数登録できます。
 
 例:
 
 ```text
 Hikimori Neko
 ├─ CHZZK
-└─ YouTube
+├─ YouTube — Main
+└─ YouTube — Replay
 ```
 
 プロフィールには識別やメモ用のテキストも入力できます。
@@ -1111,15 +1203,22 @@ YouTubeの場合:
 
 配信者プロフィールごとに異なる通知外観を設定できます。
 
-![Customize Notification](img/1.20C%20CUSTOM%20Alert.jpg)
+![Customize Notification](img/1.25C_CUSTOM%20Alert_EN.jpg)
 
 設定項目:
 
+**プロフィールごとの設定**
 - 背景画像
 - 文字色
 - 文字アウトライン色
-- 通知テスト
-- 外観リセット
+
+**すべての通知に共通する設定**
+- ヘッダーフォントサイズ
+- 本文フォントサイズ
+- 通知ウィンドウの透明度
+- 通知表示時間
+
+保存前の一時設定で **通知テスト** を実行できます。**外観リセット** はまず画面上の一時値だけを初期値に戻し、実際の保存は **保存** を押した時点で行われます。
 
 対応する背景画像形式:
 
@@ -1139,7 +1238,7 @@ YouTubeの場合:
 
 ### 通知例
 
-![HIKI Notifier Notification](img/1.20C%20alret.jpg)
+![HIKI Notifier Notification](img/1.25c_Alert_Sample.jpg)
 
 通知ウィンドウは480 × 270の固定レイアウトを使用します。
 
@@ -1153,7 +1252,11 @@ YouTubeの場合:
 
 通知ウィンドウの透明度は **50%～100%** の範囲で調整できます。
 
-これらはすべての配信者プロフィールに共通して適用されます。
+ヘッダーフォントサイズは **12～20 pt**、本文フォントサイズは **10～16 pt** の範囲で調整できます。
+
+これらの共通設定は **通知ウィンドウのカスタマイズ** 画面にまとめられ、すべてのプロフィールに適用されます。背景画像と文字色/アウトライン色はプロフィールごとの設定です。
+
+v1.25Cの通知画面では、カスタム背景上でも文字を読みやすくするため、テキスト領域だけに暗い半透明scrim、弱い固定シャドウ、アウトラインを使用します。プラットフォームロゴの後に配信者名/開始メッセージ、利用可能な場合はカテゴリと視聴者数、最大2行のタイトルを表示します。
 
 ---
 
@@ -1180,6 +1283,14 @@ HIKI NotifierはGoogleまたはYouTubeへのログインなしで、新しく公
 処理済みのvideoIdを保持し、通常のフィードが復旧したあとも同じコンテンツを重複通知しないようにします。
 
 この機能はYouTubeの公開フィードやWebページ構造を利用しているため、将来YouTube側の仕様が変更された場合は更新が必要になることがあります。
+
+---
+
+## ヘルプ
+
+v1.25Cでは、ヘルプ画面をトピック別の構成に刷新しました。
+
+左側の一覧から項目を選択すると、右側のスクロール領域に詳細説明が表示されます。クイックスタート、プロフィール、チャンネル追加、対応プラットフォーム、通知、自動オープン、通知カスタマイズ、バックアップ、トラブルシューティングなどをアプリ内で確認できます。
 
 ---
 
