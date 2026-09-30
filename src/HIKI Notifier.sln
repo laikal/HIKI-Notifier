@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HIKI-Notifier", "HIKI-Notifier.csproj", "{1B455694-39B4-4CAA-B517-EED162134C91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HIKI.Notifier.Contracts", "Contracts\HIKI.Notifier.Contracts.csproj", "{DD94B4D4-E867-5DFE-9FB3-85A0B8D7DDDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HIKI.Notifier.Version", "Version\HIKI.Notifier.Version.csproj", "{40AA8D4B-6333-5DC0-95CC-E26791B21757}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HIKI.Provider.CHZZK", "Providers\CHZZK\HIKI.Provider.CHZZK.csproj", "{2DCAA2D0-676E-500B-834E-80981E1B3492}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HIKI.Provider.CIME", "Providers\CIME\HIKI.Provider.CIME.csproj", "{E1E4F74D-11AF-5661-908A-220BDC2A1DF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HIKI.Provider.RPLAY", "Providers\RPLAY\HIKI.Provider.RPLAY.csproj", "{8545E1F1-9805-50A0-B909-7812DE077FD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HIKI.Provider.SOOP", "Providers\SOOP\HIKI.Provider.SOOP.csproj", "{38080147-D2A2-5881-89E4-9F45791F6775}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HIKI.Provider.Twitch", "Providers\Twitch\HIKI.Provider.Twitch.csproj", "{20CE966F-61D1-5E92-B160-826149E528AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HIKI.Provider.YouTube", "Providers\YouTube\HIKI.Provider.YouTube.csproj", "{95B31B60-A886-5D3C-9BD4-2873AD1C4B53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{450712DD-FFC8-5668-9F2B-858A2E575DA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HIKI.Provider.Kick", "Providers\Kick\HIKI.Provider.Kick.csproj", "{6CF4B0CE-58D7-496A-948D-58862D0C9ABE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6CF4B0CE-58D7-496A-948D-58862D0C9ABE}.Release|x64.ActiveCfg = Release|x64
+		{6CF4B0CE-58D7-496A-948D-58862D0C9ABE}.Release|x64.Build.0 = Release|x64
+		{1B455694-39B4-4CAA-B517-EED162134C91}.Release|x64.ActiveCfg = Release|x64
+		{1B455694-39B4-4CAA-B517-EED162134C91}.Release|x64.Build.0 = Release|x64
+		{DD94B4D4-E867-5DFE-9FB3-85A0B8D7DDDE}.Release|x64.ActiveCfg = Release|x64
+		{DD94B4D4-E867-5DFE-9FB3-85A0B8D7DDDE}.Release|x64.Build.0 = Release|x64
+		{40AA8D4B-6333-5DC0-95CC-E26791B21757}.Release|x64.ActiveCfg = Release|x64
+		{40AA8D4B-6333-5DC0-95CC-E26791B21757}.Release|x64.Build.0 = Release|x64
+		{2DCAA2D0-676E-500B-834E-80981E1B3492}.Release|x64.ActiveCfg = Release|x64
+		{2DCAA2D0-676E-500B-834E-80981E1B3492}.Release|x64.Build.0 = Release|x64
+		{E1E4F74D-11AF-5661-908A-220BDC2A1DF9}.Release|x64.ActiveCfg = Release|x64
+		{E1E4F74D-11AF-5661-908A-220BDC2A1DF9}.Release|x64.Build.0 = Release|x64
+		{8545E1F1-9805-50A0-B909-7812DE077FD9}.Release|x64.ActiveCfg = Release|x64
+		{8545E1F1-9805-50A0-B909-7812DE077FD9}.Release|x64.Build.0 = Release|x64
+		{38080147-D2A2-5881-89E4-9F45791F6775}.Release|x64.ActiveCfg = Release|x64
+		{38080147-D2A2-5881-89E4-9F45791F6775}.Release|x64.Build.0 = Release|x64
+		{20CE966F-61D1-5E92-B160-826149E528AF}.Release|x64.ActiveCfg = Release|x64
+		{20CE966F-61D1-5E92-B160-826149E528AF}.Release|x64.Build.0 = Release|x64
+		{95B31B60-A886-5D3C-9BD4-2873AD1C4B53}.Release|x64.ActiveCfg = Release|x64
+		{95B31B60-A886-5D3C-9BD4-2873AD1C4B53}.Release|x64.Build.0 = Release|x64
+		{450712DD-FFC8-5668-9F2B-858A2E575DA1}.Release|x64.ActiveCfg = Release|x64
+		{450712DD-FFC8-5668-9F2B-858A2E575DA1}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+EndGlobal

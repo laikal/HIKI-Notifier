@@ -1,0 +1,47 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="Current">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
+    <OutputType>Library</OutputType>
+    <AssemblyName>HIKI.Provider.YouTube</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <ProjectGuid>{95B31B60-A886-5D3C-9BD4-2873AD1C4B53}</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="YouTubeClient.cs" />
+    <Compile Include="YouTubeProvider.cs" />
+    <Compile Include="YouTubeMetadata.cs" />
+    <Compile Include="TestAccess.cs" />
+    <Compile Include="../../Version/AssemblyMetadata.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../Contracts/HIKI.Notifier.Contracts.csproj">
+      <Private>true</Private>
+    </ProjectReference>
+    <ProjectReference Include="../../Version/HIKI.Notifier.Version.csproj">
+      <Private>true</Private>
+    </ProjectReference>
+    <EmbeddedResource Include="YOUTUBE.png">
+      <LogicalName>HikiNotifier.Assets.YOUTUBE.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

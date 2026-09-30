@@ -1,0 +1,47 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="Current">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
+    <OutputType>Library</OutputType>
+    <AssemblyName>HIKI.Provider.CIME</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <ProjectGuid>{E1E4F74D-11AF-5661-908A-220BDC2A1DF9}</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CimeClient.cs" />
+    <Compile Include="CimeProvider.cs" />
+    <Compile Include="CimeMetadata.cs" />
+    <Compile Include="TestAccess.cs" />
+    <Compile Include="../../Version/AssemblyMetadata.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../Contracts/HIKI.Notifier.Contracts.csproj">
+      <Private>true</Private>
+    </ProjectReference>
+    <ProjectReference Include="../../Version/HIKI.Notifier.Version.csproj">
+      <Private>true</Private>
+    </ProjectReference>
+    <EmbeddedResource Include="CIME.png">
+      <LogicalName>HikiNotifier.Assets.CIME.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

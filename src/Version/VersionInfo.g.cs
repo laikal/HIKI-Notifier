@@ -1,0 +1,1 @@
+namespace HikiNotifier { public static class ProductVersion { public const string DisplayVersion = "1.20C"; public const string NumericVersion = "1.20.2.0"; public static string Current => DisplayVersion; } }

@@ -1,0 +1,139 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>HIKI Logic Checks</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ProjectGuid>{450712DD-FFC8-5668-9F2B-858A2E575DA1}</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin/Modular/$(Configuration)/</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" /><Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="TestProgram.cs" />
+    <Compile Include="V120Checks.cs" />
+    <Compile Include="TwitchChecks.cs" />
+    <Compile Include="CimeChecks.cs" />
+    <Compile Include="..\AppInfo.cs" />
+    <Compile Include="..\UI\UiTheme.cs" />
+    <Compile Include="..\UI\ModernButton.cs" />
+    <Compile Include="..\UI\ProfileListView.cs" />
+    <Compile Include="..\UI\LogoResources.cs" />
+    <Compile Include="..\UI\LogoEasterEgg.cs" />
+    <Compile Include="..\UI\ProfileEditForm.cs" />
+    <Compile Include="..\UI\NotificationAppearanceForm.cs" />
+    <Compile Include="..\UI\SettingsForm.cs" />
+    <Compile Include="..\Models\StreamerProfile.cs" />
+    <Compile Include="..\Models\AppSettings.cs" />
+    <Compile Include="..\Models\NotificationSoundMode.cs" />
+    <Compile Include="..\Services\SettingsService.cs" />
+    <Compile Include="..\Services\SettingsService.Portable.cs" />
+    <Compile Include="..\Services\ProfileStore.cs" />
+    <Compile Include="..\Services\BackgroundImage.cs" />
+    <Compile Include="..\Services\PollingService.cs" />
+    <Compile Include="..\Services\AutoOpenService.cs" />
+    <Compile Include="..\Services\NotificationService.cs" />
+    <Compile Include="..\Services\SoundService.cs" />
+    <Compile Include="..\Services\LanguageService.cs" />
+    <Compile Include="..\Services\StartupService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\lang\ja.ini">
+      <Link>lang\ja.ini</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\lang\ko.ini">
+      <Link>lang\ko.ini</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\lang\en.ini">
+      <Link>lang\en.ini</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\Assets\ABOUT.png">
+      <LogicalName>HikiNotifier.Assets.ABOUT.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Assets\Kick.png">
+      <LogicalName>HikiNotifier.Assets.Kick.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Assets\Spoon.png">
+      <LogicalName>HikiNotifier.Assets.Spoon.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Assets\TwitCasting.png">
+      <LogicalName>HikiNotifier.Assets.TwitCasting.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Assets\JP_logo.png">
+      <LogicalName>HikiNotifier.Assets.JP_logo.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Assets\kr_logo.png">
+      <LogicalName>HikiNotifier.Assets.kr_logo.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\Assets\EN_logo.png">
+      <LogicalName>HikiNotifier.Assets.EN_logo.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Fixtures\twitch-*.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="../Contracts/HIKI.Notifier.Contracts.csproj" />
+    <ProjectReference Include="../Version/HIKI.Notifier.Version.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="../Services/PlatformRegistry.cs" />
+    <Compile Include="../Services/NotificationReplay.cs" />
+    <ProjectReference Include="../Providers/CHZZK/HIKI.Provider.CHZZK.csproj">
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="../Providers/RPLAY/HIKI.Provider.RPLAY.csproj">
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="../Providers/YouTube/HIKI.Provider.YouTube.csproj">
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="../Providers/Twitch/HIKI.Provider.Twitch.csproj">
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="../Providers/SOOP/HIKI.Provider.SOOP.csproj">
+      <Private>false</Private>
+    </ProjectReference>
+    <ProjectReference Include="../Providers/CIME/HIKI.Provider.CIME.csproj">
+      <Private>false</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Target Name="CopyProviderModules" AfterTargets="Build">
+    <ItemGroup>
+      <ProviderModule Include="../Providers/*/bin/$(Configuration)/HIKI.Provider.*.dll" />
+    </ItemGroup>
+    <Copy SourceFiles="@(ProviderModule)" DestinationFolder="$(OutputPath)Providers" SkipUnchangedFiles="true" />
+  </Target>
+  <ItemGroup>
+    <Compile Include="TestProviders.cs" />
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ModuleChecks.cs" />
+    <Compile Include="../UI/MainForm.cs" />
+    <Compile Include="../UI/HelpForm.cs" />
+    <Compile Include="../UI/AboutForm.cs" />
+    <Compile Include="../Tray/TrayManager.cs" />
+  </ItemGroup>
+</Project>
