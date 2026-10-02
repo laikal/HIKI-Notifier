@@ -28,21 +28,21 @@ No account login is required for supported platform monitoring.
 
 ## Screenshots
 
-### Standard Theme
+### Main Window
 
-![HIKI Notifier Main Window - Standard Theme](img/1.25C_MAIN_NO_SKIN_EN.jpg)
-
-### Dark Theme
-
-![HIKI Notifier Main Window - Dark Theme](img/1.25C_MAIN_SKIN_EN.jpg)
+![HIKI Notifier Main Window](img/1.27_main_en.jpg)
 
 ### Notification Appearance
 
-![Customize Notification](img/1.25C_CUSTOM%20Alert_EN.jpg)
+![Customize Notification](img/1.27_Cutomize_en.jpg)
 
-### Notification Example
+### Notification Examples
 
-![HIKI Notifier Notification](img/1.25c_Alert_Sample.jpg)
+![YouTube notification example](img/1.27_alret_1.jpg)
+
+![YouTube notification example](img/1.27_alret_2.jpg)
+
+![CHZZK notification example](img/1.27_alret_3.jpg)
 
 ---
 
@@ -59,13 +59,18 @@ No account login is required for supported platform monitoring.
 - Optional per-channel automatic stream-page opening
 - Open the relevant stream or content page by clicking the notification
 - Per-profile notification backgrounds and text colors
-- JPG / JPEG / animated GIF notification backgrounds
+- Per-profile background-image master switch
+- Per-profile stream/video thumbnail backgrounds
+- Built-in HIKI fallback background when no custom image or usable thumbnail is available
+- JPG / JPEG / animated GIF custom notification backgrounds
 - Adjustable header and content font sizes
 - Adjustable notification opacity and display duration
 - Notification preview before saving
+- Resizable main window with an expanding profile/channel list
 - Standard and Dark main-window themes
 - Built-in categorized Help window
 - Built-in notification sound, custom WAV, and silent mode
+- Single-instance protection to prevent duplicate polling and duplicate notifications
 - System tray operation
 - Optional startup with Windows
 - English, Korean, and Japanese language packs
@@ -160,13 +165,25 @@ It is intended for newly detected broadcast starts and does not simply open a pa
 
 ## Notification Appearance
 
-Each streamer profile can use its own notification background and text colors.
+Each streamer profile can control its own notification background behavior and text colors.
 
 ### Per-profile settings
 
-- Background image
+- Use notification background image
+- Use stream/video thumbnails as notification backgrounds
+- Custom background image
 - Text color
 - Text outline color
+
+When notification background images are enabled, the background priority is:
+
+1. **Custom profile background**
+2. **Stream/video thumbnail**, when enabled and available
+3. **Built-in HIKI background**
+
+If **Use notification background image** is turned off, HIKI Notifier uses the original image-less notification style.
+
+Live-stream thumbnails are used on supported live platforms, while YouTube new-video and Shorts notifications can use their video thumbnails.
 
 ### Shared settings
 
@@ -175,13 +192,13 @@ Each streamer profile can use its own notification background and text colors.
 - Notification opacity: **50–100%**
 - Notification duration: **3–30 seconds**
 
-Supported background formats:
+Supported custom background formats:
 
 - JPG
 - JPEG
 - GIF
 
-Background image requirements:
+Custom background image requirements:
 
 - Exactly **480 × 270**
 - Maximum file size **15 MB**
@@ -189,7 +206,7 @@ Background image requirements:
 
 You can test appearance changes before saving them.
 
-The notification title can use up to two lines, and the notification layout is designed to keep text readable over custom backgrounds.
+The notification title can use up to two lines, and the notification layout is designed to keep text readable over image backgrounds.
 
 ---
 
@@ -329,6 +346,8 @@ If a translation key is missing, English is used as the fallback.
 
 The person who inspired this project.
 
+The built-in HIKI notification background is included with permission from Hikimori Neko.
+
 ---
 
 ## Disclaimer
@@ -383,21 +402,21 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 
 ## 스크린샷
 
-### 기본 테마
+### 메인 화면
 
-![HIKI Notifier Main Window - Standard Theme](img/1.25C_MAIN_NO_SKIN_KR.jpg)
-
-### 다크 테마
-
-![HIKI Notifier Main Window - Dark Theme](img/1.25C_MAIN_SKIN_KR.jpg)
+![HIKI Notifier 메인 화면](img/1.27_main_kr.jpg)
 
 ### 알림창 꾸미기
 
-![알림창 꾸미기](img/1.25C_CUSTOM%20Alert_KR.jpg)
+![알림창 꾸미기](img/1.27_Cutomize_kr.jpg)
 
 ### 알림창 예시
 
-![HIKI Notifier Notification](img/1.25c_Alert_Sample.jpg)
+![YouTube 알림창 예시](img/1.27_alret_1.jpg)
+
+![YouTube 알림창 예시](img/1.27_alret_2.jpg)
+
+![CHZZK 알림창 예시](img/1.27_alret_3.jpg)
 
 ---
 
@@ -414,13 +433,18 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 - 채널별 방송 시작 시 페이지 자동 열기
 - 알림창 클릭으로 방송 또는 콘텐츠 페이지 열기
 - 프로파일별 알림 배경 및 글자 색 설정
-- JPG / JPEG / 움직이는 GIF 알림 배경
+- 프로파일별 알림 배경 이미지 사용 ON / OFF
+- 프로파일별 방송·영상 썸네일 배경
+- 사용자 배경이나 사용할 수 있는 썸네일이 없을 때 표시되는 HIKI 기본 배경
+- JPG / JPEG / 움직이는 GIF 사용자 지정 알림 배경
 - 헤더 / 본문 글자 크기 조절
 - 알림창 투명도 및 표시 시간 조절
 - 저장 전 알림창 테스트
+- 창 크기에 맞춰 프로파일/채널 목록 영역이 확장되는 메인 화면
 - 기본 / 다크 메인 화면 테마
 - 항목별 내장 도움말
 - 기본 알림음 / 사용자 WAV / 무음
+- 중복 실행 방지로 이중 polling 및 중복 알림 방지
 - 시스템 트레이 상주
 - Windows 시작 시 자동 실행
 - English / 한국어 / 日本語 언어팩
@@ -517,13 +541,25 @@ YouTube에서는 새 영상 또는 Shorts가 확인되면 새 콘텐츠 알림�
 
 ## 알림창 꾸미기
 
-각 스트리머 프로파일마다 서로 다른 알림 배경과 글자 색을 사용할 수 있습니다.
+각 스트리머 프로파일마다 알림 배경 이미지 사용 여부, 썸네일 배경 사용 여부, 사용자 지정 배경과 글자 색을 따로 설정할 수 있습니다.
 
 ### 프로파일별 설정
 
-- 배경 이미지
+- 알림 배경 이미지 사용
+- 영상 썸네일을 알림 배경으로 사용
+- 사용자 지정 배경 이미지
 - 글자 색
 - 글자 외곽선 색
+
+알림 배경 이미지 사용이 켜져 있을 때 배경 우선순위는 다음과 같습니다.
+
+1. **사용자가 지정한 프로파일 배경**
+2. **방송·영상 썸네일** — 옵션이 켜져 있고 썸네일을 사용할 수 있을 때
+3. **HIKI 기본 배경 이미지**
+
+**알림 배경 이미지 사용**을 끄면 이미지 없는 기존 알림 방식으로 표시됩니다.
+
+지원 라이브 플랫폼의 방송 알림에서는 라이브 썸네일을 사용할 수 있으며, YouTube 새 영상·Shorts 알림에서는 영상 썸네일을 사용할 수 있습니다.
 
 ### 전체 알림창 공통 설정
 
@@ -532,13 +568,13 @@ YouTube에서는 새 영상 또는 Shorts가 확인되면 새 콘텐츠 알림�
 - 알림창 투명도: **50~100%**
 - 알림 표시 시간: **3~30초**
 
-지원하는 배경 형식:
+지원하는 사용자 지정 배경 형식:
 
 - JPG
 - JPEG
 - GIF
 
-배경 이미지 조건:
+사용자 지정 배경 이미지 조건:
 
 - 정확히 **480 × 270**
 - 최대 **15 MB**
@@ -546,7 +582,7 @@ YouTube에서는 새 영상 또는 Shorts가 확인되면 새 콘텐츠 알림�
 
 설정을 저장하기 전에 현재 변경값으로 알림창을 테스트할 수 있습니다.
 
-방송 및 콘텐츠 제목은 최대 2줄까지 표시되며, 사용자 지정 배경에서도 글자를 읽기 쉽도록 알림창이 구성되어 있습니다.
+방송 및 콘텐츠 제목은 최대 2줄까지 표시되며, 이미지 배경에서도 글자를 읽기 쉽도록 알림창이 구성되어 있습니다.
 
 ---
 
@@ -686,6 +722,8 @@ lang\*.ini
 
 이 프로그램을 만들게 된 계기가 되어준 사람.
 
+프로그램에 포함된 HIKI 기본 알림 배경 이미지는 Hikimori Neko의 허가를 받아 사용합니다.
+
 ---
 
 ## 면책 고지
@@ -740,21 +778,21 @@ HIKI Notifier는 비공식 팬메이드 유틸리티입니다.
 
 ## スクリーンショット
 
-### 標準テーマ
+### メイン画面
 
-![HIKI Notifier Main Window - Standard Theme](img/1.25C_MAIN_NO_SKIN_EN.jpg)
-
-### ダークテーマ
-
-![HIKI Notifier Main Window - Dark Theme](img/1.25C_MAIN_SKIN_EN.jpg)
+![HIKI Notifier メイン画面](img/1.27_main_jp.jpg)
 
 ### 通知カスタマイズ
 
-![Customize Notification](img/1.25C_CUSTOM%20Alert_EN.jpg)
+![通知カスタマイズ](img/1.27_Cutomize_jp.jpg)
 
 ### 通知例
 
-![HIKI Notifier Notification](img/1.25c_Alert_Sample.jpg)
+![YouTube 通知例](img/1.27_alret_1.jpg)
+
+![YouTube 通知例](img/1.27_alret_2.jpg)
+
+![CHZZK 通知例](img/1.27_alret_3.jpg)
 
 ---
 
@@ -772,13 +810,18 @@ HIKI Notifier는 비공식 팬메이드 유틸리티입니다.
 - チャンネルごとの配信ページ自動オープン
 - 通知をクリックして配信・コンテンツページを開く
 - プロフィールごとの通知背景・文字色設定
-- JPG / JPEG / アニメーションGIF通知背景
+- プロフィールごとの通知背景画像 ON / OFF
+- プロフィールごとの配信・動画サムネイル背景
+- カスタム背景や利用可能なサムネイルがない場合のHIKI標準背景
+- JPG / JPEG / アニメーションGIFのカスタム通知背景
 - ヘッダー / 本文フォントサイズ調整
 - 通知の透明度・表示時間調整
 - 保存前の通知テスト
+- ウィンドウサイズに合わせてプロフィール/チャンネル一覧が広がるメイン画面
 - 標準 / ダークテーマ
 - カテゴリ別の内蔵ヘルプ
 - 内蔵通知音 / カスタムWAV / 無音
+- 二重起動防止による重複ポーリング・重複通知の防止
 - システムトレイ常駐
 - Windows起動時の自動実行
 - English / 한국어 / 日本語 言語パック
@@ -875,13 +918,25 @@ YouTubeでは、新しい動画またはShortsが確認されると新着コン�
 
 ## 通知カスタマイズ
 
-配信者プロフィールごとに異なる通知背景と文字色を設定できます。
+配信者プロフィールごとに、通知背景画像の使用、サムネイル背景の使用、カスタム背景、文字色を個別に設定できます。
 
 ### プロフィールごとの設定
 
-- 背景画像
+- 通知の背景画像を使用
+- 動画のサムネイルを通知背景に使用
+- カスタム背景画像
 - 文字色
 - 文字アウトライン色
+
+通知背景画像を有効にしている場合、背景の優先順位は次のとおりです。
+
+1. **プロフィールに設定したカスタム背景**
+2. **配信・動画サムネイル** — オプションが有効で、利用できる場合
+3. **HIKI標準背景画像**
+
+**通知の背景画像を使用**を無効にすると、画像を使わない従来の通知スタイルで表示されます。
+
+対応ライブ配信プラットフォームの通知では配信サムネイルを利用でき、YouTubeの新着動画・Shorts通知では動画サムネイルを利用できます。
 
 ### すべての通知に共通する設定
 
@@ -890,13 +945,13 @@ YouTubeでは、新しい動画またはShortsが確認されると新着コン�
 - 通知透明度: **50～100%**
 - 通知表示時間: **3～30秒**
 
-対応背景形式:
+対応カスタム背景形式:
 
 - JPG
 - JPEG
 - GIF
 
-背景画像の条件:
+カスタム背景画像の条件:
 
 - 正確に **480 × 270**
 - 最大 **15 MB**
@@ -904,7 +959,7 @@ YouTubeでは、新しい動画またはShortsが確認されると新着コン�
 
 保存前に現在の設定で通知をテストできます。
 
-配信・コンテンツタイトルは最大2行まで表示され、カスタム背景上でも文字を読みやすいレイアウトになっています。
+配信・コンテンツタイトルは最大2行まで表示され、画像背景上でも文字を読みやすいレイアウトになっています。
 
 ---
 
@@ -1043,6 +1098,8 @@ lang\*.ini
 ### Hikimori Neko
 
 このプロジェクトを作るきっかけをくれた人。
+
+内蔵のHIKI標準通知背景画像は、Hikimori Nekoの許可を得て使用しています。
 
 ---
 
