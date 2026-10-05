@@ -2,11 +2,13 @@
 
 **English | [한국어](#한국어) | [日本語](#日本語)**
 
-A lightweight Windows notification utility for multiple streaming platforms.
+**Current release: v1.280**
 
-**Supported platforms:** CHZZK · YouTube · RPLAY · Twitch · SOOP · CIME · Kick · TwitCasting
+A lightweight Windows notification utility for monitoring multiple streaming platforms and new content.
 
-- **CHZZK** — LIVE status, stream title, viewer count, and live notifications
+**Supported platforms:** CHZZK · YouTube · RPLAY · Twitch · SOOP · CIME · Kick · TwitCasting · Bilibili · Niconico Live · Mirrativ · SHOWROOM · Picarto.TV
+
+- **CHZZK** — LIVE status, stream title, viewer count, thumbnails, and live notifications
 - **YouTube** — New video and Shorts notifications
 - **RPLAY** — LIVE status and live notifications
 - **Twitch** — LIVE status and live notifications
@@ -14,6 +16,11 @@ A lightweight Windows notification utility for multiple streaming platforms.
 - **CIME** — LIVE status, stream title, viewer information, and live notifications
 - **Kick** — LIVE status, stream title, viewer count, and live notifications
 - **TwitCasting** — LIVE status, stream title, and live notifications
+- **Bilibili** — LIVE status and live notifications
+- **Niconico Live** — User LIVE status and live notifications
+- **Mirrativ** — Public LIVE status and live notifications
+- **SHOWROOM** — LIVE status and live notifications
+- **Picarto.TV** — LIVE status and live notifications
 
 HIKI Notifier includes a built-in **Hikimori Neko** profile with one CHZZK channel and two YouTube channels.
 
@@ -44,32 +51,40 @@ No account login is required for supported platform monitoring.
 
 ![CHZZK notification example](img/1.27_alret_3.jpg)
 
+> The screenshots above are from the 1.27 UI. The overall layout remains representative of v1.280.
+
 ---
 
 ## Features
 
-- LIVE / OFFLINE / UNKNOWN status monitoring
+- LIVE / OFFLINE / UNKNOWN status monitoring for supported live-stream platforms
 - Desktop notifications when registered live channels go LIVE
-- Stream title, category, and viewer information when available
+- Stream title, category, viewer information, and thumbnails when available
 - YouTube new video and Shorts notifications
 - Built-in Hikimori Neko profile with **1 CHZZK + 2 YouTube channels**
 - Multiple streamer profiles
 - Multiple channels per profile, including multiple channels from the same platform
 - Per-channel notification ON / OFF
 - Optional per-channel automatic stream-page opening
-- Open the relevant stream or content page by clicking the notification
+- Open the relevant stream or content page from the notification
+- Per-profile notification appearance settings
 - Per-profile notification backgrounds and text colors
 - Per-profile background-image master switch
 - Per-profile stream/video thumbnail backgrounds
-- Built-in HIKI fallback background when no custom image or usable thumbnail is available
-- JPG / JPEG / animated GIF custom notification backgrounds
+- Built-in HIKI fallback background when no custom media or usable thumbnail is available
+- Custom notification backgrounds using **JPG / JPEG / PNG / GIF / WebP / WebM**
+- Static and animated WebP support
+- WebM background support using VP8 / VP9 / AV1 video
+- Optional notification-media audio, independently controlled from the normal notification WAV sound
 - Adjustable header and content font sizes
+- Adjustable text outline color and **outline thickness (0–6 px)**
 - Adjustable notification opacity and display duration
 - Notification preview before saving
-- Resizable main window with an expanding profile/channel list
+- Test notifications can preview branding using a randomly selected loaded Provider
+- Per-profile notification sound: built-in WAV / custom WAV / silent
+- Resizable main window with DPI-aware layout behavior
 - Standard and Dark main-window themes
 - Built-in categorized Help window
-- Built-in notification sound, custom WAV, and silent mode
 - Single-instance protection to prevent duplicate polling and duplicate notifications
 - System tray operation
 - Optional startup with Windows
@@ -108,7 +123,7 @@ Hikimori Neko
 
 The built-in profile and its predefined channel addresses are protected from deletion or modification.
 
-Notification settings and notification appearance can still be changed.
+Channel notification settings, notification appearance, and notification sound can still be customized.
 
 ---
 
@@ -128,7 +143,7 @@ https://kick.com/CHANNEL
 https://twitcasting.tv/CHANNEL
 ```
 
-Supported platform URLs are recognized automatically.
+Supported platform URLs are recognized automatically by the installed Providers.
 
 A single streamer profile can contain multiple linked channels, including multiple different channels from the same platform.
 
@@ -146,10 +161,11 @@ Depending on the platform, a notification can include:
 - Stream title
 - Category
 - Viewer count
+- Stream/video thumbnail
 
 For YouTube, HIKI Notifier can notify you when a new video or Shorts content is detected.
 
-Click anywhere on a notification to open the relevant stream or content page in your default browser.
+Use the notification's available open-stream/content action to open the relevant page in your default browser.
 
 ---
 
@@ -165,48 +181,65 @@ It is intended for newly detected broadcast starts and does not simply open a pa
 
 ## Notification Appearance
 
-Each streamer profile can control its own notification background behavior and text colors.
+Each streamer profile can control its own notification appearance and sound behavior.
 
 ### Per-profile settings
 
-- Use notification background image
+- Use notification background image/media
 - Use stream/video thumbnails as notification backgrounds
-- Custom background image
+- Custom background image/media
 - Text color
 - Text outline color
+- Text outline thickness: **0–6 px**
+- Notification sound mode
+- Custom WAV file when selected
 
-When notification background images are enabled, the background priority is:
+When notification background images are enabled, the normal background priority is:
 
-1. **Custom profile background**
+1. **Custom profile background/media**
 2. **Stream/video thumbnail**, when enabled and available
 3. **Built-in HIKI background**
 
-If **Use notification background image** is turned off, HIKI Notifier uses the original image-less notification style.
+If **Use notification background image** is turned off, HIKI Notifier uses the image-less notification style.
 
-Live-stream thumbnails are used on supported live platforms, while YouTube new-video and Shorts notifications can use their video thumbnails.
+Live-stream thumbnails are used on supported live platforms when available, while YouTube new-video and Shorts notifications can use their video thumbnails.
 
-### Shared settings
+### Notification text / timing controls
 
 - Header font size: **12–20 pt**
 - Content font size: **10–16 pt**
+- Text outline thickness: **0–6 px**
 - Notification opacity: **50–100%**
 - Notification duration: **3–30 seconds**
 
-Supported custom background formats:
+### Supported custom background formats
 
 - JPG
 - JPEG
+- PNG
 - GIF
+- WebP
+- WebM
 
-Custom background image requirements:
+Animated GIF and animated WebP backgrounds repeat while the notification is visible.
 
-- Exactly **480 × 270**
-- Maximum file size **15 MB**
-- Animated GIF backgrounds repeat while the notification is visible
+WebM backgrounds support the application's validated VP8 / VP9 / AV1 playback path. Notification-media audio can be enabled or disabled independently from the normal notification WAV sound.
 
-You can test appearance changes before saving them.
+Unsupported, missing, or corrupt media falls back safely instead of preventing the notification from appearing.
 
-The notification title can use up to two lines, and the notification layout is designed to keep text readable over image backgrounds.
+You can test current appearance and sound changes before saving them. Test notifications may use a randomly selected loaded Provider logo so that different platform branding can be previewed without changing the channels registered to the profile.
+
+The notification title can use up to two lines, and the layout is designed to keep text readable over image and video backgrounds.
+
+---
+
+## Main Window Background Media
+
+The main window can use custom background media using the existing skin/background system.
+
+Supported media includes image formats as well as WebP and WebM. Animated media pauses while the main window is hidden or minimized and resumes when it becomes visible again.
+
+Main background-media audio is optional and is controlled separately from notification sound and notification-media audio.
 
 ---
 
@@ -240,13 +273,17 @@ The built-in **Help** window provides categorized guides for:
 
 ## Notification Sound
 
+Notification sound is configured **per streamer profile** in **Notification Appearance**.
+
 Available modes:
 
-- Built-in notification sound
-- Custom WAV file
-- Silent
+- **Built-in notification WAV**
+- **Custom WAV file**
+- **Silent**
 
-Notification sound settings can be changed from **Settings**.
+Different streamer profiles can use different custom WAV files.
+
+The normal notification WAV sound is independent from audio embedded in notification background media such as WebM.
 
 ---
 
@@ -304,7 +341,7 @@ Profiles\
 settings.json
 ```
 
-Profile appearance files are stored together with the profile data.
+Profile appearance files, custom media references, and per-profile notification settings are stored with the profile data according to the application's profile storage structure.
 
 ---
 
@@ -364,11 +401,13 @@ Changes to service APIs, public feeds, or web structures may cause some features
 
 ## License
 
-No open-source license is currently provided for this repository.
+No open-source license is currently provided for the HIKI Notifier project source code.
 
 **Copyright © Eltax. All rights reserved.**
 
 Third-party trademarks, service names, and externally sourced assets remain subject to the rights and license terms of their respective owners.
+
+Bundled third-party runtime components retain their own licenses. See the distributed `Providers/Module/ThirdPartyNotices.md` and `Providers/Module/Licenses/` files for applicable notices and license texts.
 
 ---
 
@@ -376,11 +415,13 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 
 **[English](#hiki-notifier) | 한국어 | [日本語](#日本語)**
 
-**HIKI Notifier**는 여러 스트리밍 플랫폼의 방송 및 새 콘텐츠를 확인하기 위한 가벼운 Windows용 알림 유틸리티입니다.
+**현재 버전: v1.280**
 
-**지원 플랫폼:** CHZZK · YouTube · RPLAY · Twitch · SOOP · CIME · Kick · TwitCasting
+**HIKI Notifier**는 여러 스트리밍 플랫폼의 방송 상태와 새 콘텐츠를 확인하고 Windows 알림으로 알려주는 가벼운 상주형 알림 유틸리티입니다.
 
-- **CHZZK** — 방송 상태, 방송 제목, 시청자 수 및 방송 시작 알림
+**지원 플랫폼:** CHZZK · YouTube · RPLAY · Twitch · SOOP · CIME · Kick · TwitCasting · Bilibili · Niconico Live · Mirrativ · SHOWROOM · Picarto.TV
+
+- **CHZZK** — 방송 상태, 방송 제목, 시청자 수, 썸네일 및 방송 시작 알림
 - **YouTube** — 새 영상 및 Shorts 알림
 - **RPLAY** — 방송 상태 및 방송 시작 알림
 - **Twitch** — 방송 상태 및 방송 시작 알림
@@ -388,6 +429,11 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 - **CIME(씨미)** — 방송 상태, 방송 제목, 시청자 정보 및 방송 시작 알림
 - **Kick** — 방송 상태, 방송 제목, 시청자 수 및 방송 시작 알림
 - **TwitCasting** — 방송 상태, 방송 제목 및 방송 시작 알림
+- **Bilibili** — 방송 상태 및 방송 시작 알림
+- **Niconico Live** — 일반 사용자 방송 상태 및 방송 시작 알림
+- **Mirrativ** — 공개 방송 상태 및 방송 시작 알림
+- **SHOWROOM** — 방송 상태 및 방송 시작 알림
+- **Picarto.TV** — 방송 상태 및 방송 시작 알림
 
 기본 **Hikimori Neko** 프로파일에는 CHZZK 1개와 YouTube 2개 채널이 포함되어 있습니다.
 
@@ -418,32 +464,40 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 
 ![CHZZK 알림창 예시](img/1.27_alret_3.jpg)
 
+> 위 스크린샷은 1.27 UI 기준이며, 전체적인 화면 구성은 v1.280에서도 동일한 흐름을 유지합니다.
+
 ---
 
 ## 주요 기능
 
 - 지원 라이브 플랫폼의 LIVE / OFFLINE / UNKNOWN 상태 확인
 - 등록한 라이브 채널의 방송 시작 알림
-- 플랫폼에 따라 방송 제목, 카테고리 및 시청자 정보 표시
+- 플랫폼에 따라 방송 제목, 카테고리, 시청자 정보 및 썸네일 표시
 - YouTube 새 영상 및 Shorts 알림
 - Hikimori Neko **CHZZK 1개 + YouTube 2개** 기본 프로파일
 - 여러 스트리머 프로파일 등록
 - 하나의 프로파일에 여러 채널 등록 및 동일 플랫폼 다중 채널 지원
 - 채널별 알림 ON / OFF
 - 채널별 방송 시작 시 페이지 자동 열기
-- 알림창 클릭으로 방송 또는 콘텐츠 페이지 열기
+- 알림창에서 해당 방송 또는 콘텐츠 페이지 열기
+- 프로파일별 알림창 꾸미기
 - 프로파일별 알림 배경 및 글자 색 설정
-- 프로파일별 알림 배경 이미지 사용 ON / OFF
+- 프로파일별 알림 배경 이미지/미디어 사용 ON / OFF
 - 프로파일별 방송·영상 썸네일 배경
 - 사용자 배경이나 사용할 수 있는 썸네일이 없을 때 표시되는 HIKI 기본 배경
-- JPG / JPEG / 움직이는 GIF 사용자 지정 알림 배경
+- **JPG / JPEG / PNG / GIF / WebP / WebM** 사용자 지정 알림 배경
+- 정적 및 움직이는 WebP 지원
+- VP8 / VP9 / AV1 WebM 배경 지원
+- 일반 WAV 알림음과 별도로 켜고 끌 수 있는 알림 배경 미디어 오디오
 - 헤더 / 본문 글자 크기 조절
+- 글자 외곽선 색 및 **외곽선 두께 0~6 px** 조절
 - 알림창 투명도 및 표시 시간 조절
 - 저장 전 알림창 테스트
-- 창 크기에 맞춰 프로파일/채널 목록 영역이 확장되는 메인 화면
+- 테스트 알림에서 현재 로드된 Provider 로고를 랜덤으로 미리보기
+- 프로파일별 알림음: 기본 내장 WAV / 사용자 WAV / 무음
+- DPI 대응 및 크기 조절이 가능한 메인 화면
 - 기본 / 다크 메인 화면 테마
 - 항목별 내장 도움말
-- 기본 알림음 / 사용자 WAV / 무음
 - 중복 실행 방지로 이중 polling 및 중복 알림 방지
 - 시스템 트레이 상주
 - Windows 시작 시 자동 실행
@@ -484,7 +538,7 @@ Hikimori Neko
 
 기본 프로파일과 미리 등록된 채널 주소는 삭제하거나 변경할 수 없습니다.
 
-각 채널의 알림 설정과 알림창 꾸미기는 변경할 수 있습니다.
+각 채널의 알림 설정, 알림창 꾸미기, 알림음은 변경할 수 있습니다.
 
 ---
 
@@ -504,7 +558,7 @@ https://kick.com/CHANNEL
 https://twitcasting.tv/CHANNEL
 ```
 
-지원되는 플랫폼 주소는 자동으로 인식됩니다.
+지원되는 플랫폼 주소는 설치된 Provider를 통해 자동으로 인식됩니다.
 
 하나의 스트리머 프로파일에 여러 채널을 연결할 수 있으며, 같은 플랫폼의 서로 다른 채널도 여러 개 등록할 수 있습니다.
 
@@ -522,10 +576,11 @@ https://twitcasting.tv/CHANNEL
 - 방송 제목
 - 카테고리
 - 현재 시청자 수
+- 방송·영상 썸네일
 
 YouTube에서는 새 영상 또는 Shorts가 확인되면 새 콘텐츠 알림을 받을 수 있습니다.
 
-알림창 어디든 클릭하면 해당 방송 또는 콘텐츠 페이지를 기본 브라우저에서 열 수 있습니다.
+알림창에서 제공되는 방송/콘텐츠 열기 기능을 사용하면 해당 페이지를 기본 브라우저로 열 수 있습니다.
 
 ---
 
@@ -541,48 +596,65 @@ YouTube에서는 새 영상 또는 Shorts가 확인되면 새 콘텐츠 알림�
 
 ## 알림창 꾸미기
 
-각 스트리머 프로파일마다 알림 배경 이미지 사용 여부, 썸네일 배경 사용 여부, 사용자 지정 배경과 글자 색을 따로 설정할 수 있습니다.
+각 스트리머 프로파일마다 알림 배경, 글자 스타일, 알림음 등을 따로 설정할 수 있습니다.
 
 ### 프로파일별 설정
 
-- 알림 배경 이미지 사용
+- 알림 배경 이미지/미디어 사용
 - 영상 썸네일을 알림 배경으로 사용
-- 사용자 지정 배경 이미지
+- 사용자 지정 배경 이미지/미디어
 - 글자 색
 - 글자 외곽선 색
+- 글자 외곽선 두께: **0~6 px**
+- 알림음 모드
+- 사용자 WAV 선택
 
-알림 배경 이미지 사용이 켜져 있을 때 배경 우선순위는 다음과 같습니다.
+알림 배경 이미지 사용이 켜져 있을 때 일반적인 배경 우선순위는 다음과 같습니다.
 
-1. **사용자가 지정한 프로파일 배경**
+1. **사용자가 지정한 프로파일 배경/미디어**
 2. **방송·영상 썸네일** — 옵션이 켜져 있고 썸네일을 사용할 수 있을 때
 3. **HIKI 기본 배경 이미지**
 
-**알림 배경 이미지 사용**을 끄면 이미지 없는 기존 알림 방식으로 표시됩니다.
+**알림 배경 이미지 사용**을 끄면 이미지 없는 알림 방식으로 표시됩니다.
 
 지원 라이브 플랫폼의 방송 알림에서는 라이브 썸네일을 사용할 수 있으며, YouTube 새 영상·Shorts 알림에서는 영상 썸네일을 사용할 수 있습니다.
 
-### 전체 알림창 공통 설정
+### 글자 / 표시 설정
 
 - 헤더 글자 크기: **12~20 pt**
 - 본문 글자 크기: **10~16 pt**
+- 글자 외곽선 두께: **0~6 px**
 - 알림창 투명도: **50~100%**
 - 알림 표시 시간: **3~30초**
 
-지원하는 사용자 지정 배경 형식:
+### 지원하는 사용자 지정 배경 형식
 
 - JPG
 - JPEG
+- PNG
 - GIF
+- WebP
+- WebM
 
-사용자 지정 배경 이미지 조건:
+움직이는 GIF와 Animated WebP는 알림창이 표시되는 동안 반복 재생됩니다.
 
-- 정확히 **480 × 270**
-- 최대 **15 MB**
-- 움직이는 GIF는 알림창이 표시되는 동안 반복 재생
+WebM은 프로그램에서 검증된 VP8 / VP9 / AV1 재생 경로를 사용합니다. WebM 등 배경 미디어의 오디오는 일반 WAV 알림음과 별도로 켜거나 끌 수 있습니다.
 
-설정을 저장하기 전에 현재 변경값으로 알림창을 테스트할 수 있습니다.
+파일이 없거나 손상됐거나 지원하지 않는 미디어인 경우에도 알림 자체가 막히지 않도록 안전하게 기본 배경으로 폴백합니다.
 
-방송 및 콘텐츠 제목은 최대 2줄까지 표시되며, 이미지 배경에서도 글자를 읽기 쉽도록 알림창이 구성되어 있습니다.
+설정을 저장하기 전에 현재 변경값으로 알림창과 알림음을 테스트할 수 있습니다. 테스트 알림에서는 현재 프로파일에 등록된 채널 종류와 관계없이 로드된 Provider 중 하나의 로고를 랜덤으로 표시할 수 있습니다.
+
+방송 및 콘텐츠 제목은 최대 2줄까지 표시되며, 이미지·영상 배경에서도 글자를 읽기 쉽도록 알림창이 구성되어 있습니다.
+
+---
+
+## 메인 화면 배경 미디어
+
+메인 화면도 기존 스킨/배경 시스템을 통해 사용자 지정 배경 미디어를 사용할 수 있습니다.
+
+이미지 형식과 함께 WebP 및 WebM을 사용할 수 있으며, 움직이는 미디어는 메인 창이 숨겨지거나 최소화된 동안 일시정지되고 다시 표시되면 재생을 이어갑니다.
+
+메인 배경 미디어 오디오는 선택 사항이며, 일반 알림 WAV 및 알림창 배경 미디어 오디오와 별도로 관리됩니다.
 
 ---
 
@@ -616,13 +688,17 @@ YouTube에서는 새 영상 또는 Shorts가 확인되면 새 콘텐츠 알림�
 
 ## 알림음
 
+알림음은 **스트리머 프로파일별로 알림창 꾸미기에서 설정**합니다.
+
 다음 방식을 사용할 수 있습니다.
 
-- 프로그램 기본 알림음
-- 사용자 지정 WAV
-- 무음
+- **프로그램 기본 내장 WAV**
+- **사용자 지정 WAV**
+- **무음**
 
-알림음은 **설정**에서 변경할 수 있습니다.
+서로 다른 스트리머 프로파일에 서로 다른 사용자 WAV를 지정할 수 있습니다.
+
+일반 WAV 알림음은 WebM 같은 알림 배경 미디어에 포함된 오디오와 별개의 기능입니다.
 
 ---
 
@@ -680,7 +756,7 @@ Profiles\
 settings.json
 ```
 
-알림 배경 등 프로파일별 꾸미기 파일도 프로파일 데이터와 함께 저장됩니다.
+프로파일별 알림 배경, 미디어 참조, 알림음 등의 설정도 프로그램의 프로파일 저장 구조에 따라 함께 보관됩니다.
 
 ---
 
@@ -740,11 +816,13 @@ HIKI Notifier는 비공식 팬메이드 유틸리티입니다.
 
 ## 라이선스
 
-이 저장소에는 현재 별도의 오픈소스 라이선스가 제공되지 않습니다.
+HIKI Notifier 프로젝트 소스 코드에는 현재 별도의 오픈소스 라이선스가 제공되지 않습니다.
 
 **Copyright © Eltax. All rights reserved.**
 
 제3자 상표, 서비스명 및 외부 출처 자산은 각 권리자와 해당 라이선스 조건에 따릅니다.
+
+배포본에 포함된 제3자 런타임 구성 요소에는 각각의 라이선스가 적용됩니다. 관련 고지와 라이선스 원문은 배포본의 `Providers/Module/ThirdPartyNotices.md` 및 `Providers/Module/Licenses/`를 확인하세요.
 
 ---
 
@@ -752,11 +830,13 @@ HIKI Notifier는 비공식 팬메이드 유틸리티입니다.
 
 **[English](#hiki-notifier) | [한국어](#한국어) | 日本語**
 
-**HIKI Notifier** は、複数の配信プラットフォームの配信状況や新着コンテンツを確認できる軽量なWindows向け通知ユーティリティです。
+**現在のバージョン: v1.280**
 
-**対応プラットフォーム:** CHZZK · YouTube · RPLAY · Twitch · SOOP · CIME · Kick · TwitCasting
+**HIKI Notifier** は、複数の配信プラットフォームの配信状況や新着コンテンツを確認し、Windows通知で知らせる軽量な常駐型通知ユーティリティです。
 
-- **CHZZK** — 配信状態、配信タイトル、視聴者数、配信開始通知
+**対応プラットフォーム:** CHZZK · YouTube · RPLAY · Twitch · SOOP · CIME · Kick · TwitCasting · Bilibili · Niconico Live · Mirrativ · SHOWROOM · Picarto.TV
+
+- **CHZZK** — 配信状態、配信タイトル、視聴者数、サムネイル、配信開始通知
 - **YouTube** — 新着動画・Shorts通知
 - **RPLAY** — 配信状態、配信開始通知
 - **Twitch** — 配信状態、配信開始通知
@@ -764,6 +844,11 @@ HIKI Notifier는 비공식 팬메이드 유틸리티입니다.
 - **CIME** — 配信状態、配信タイトル、視聴者情報、配信開始通知
 - **Kick** — 配信状態、配信タイトル、視聴者数、配信開始通知
 - **TwitCasting** — 配信状態、配信タイトル、配信開始通知
+- **Bilibili** — 配信状態、配信開始通知
+- **Niconico Live** — 一般ユーザー配信の状態確認・配信開始通知
+- **Mirrativ** — 公開LIVEの状態確認・配信開始通知
+- **SHOWROOM** — 配信状態、配信開始通知
+- **Picarto.TV** — 配信状態、配信開始通知
 
 標準の **Hikimori Neko** プロフィールには、CHZZK 1チャンネルとYouTube 2チャンネルが含まれています。
 
@@ -794,13 +879,15 @@ HIKI Notifier는 비공식 팬메이드 유틸리티입니다.
 
 ![CHZZK 通知例](img/1.27_alret_3.jpg)
 
+> 上記のスクリーンショットは1.27 UIのものですが、v1.280でも全体的なレイアウトは同じ流れを維持しています。
+
 ---
 
 ## 主な機能
 
 - 対応ライブ配信プラットフォームのLIVE / OFFLINE / UNKNOWN状態を確認
 - 登録したライブチャンネルの配信開始通知
-- プラットフォームに応じて配信タイトル、カテゴリ、視聴者情報を表示
+- プラットフォームに応じて配信タイトル、カテゴリ、視聴者情報、サムネイルを表示
 - YouTubeの新着動画・Shorts通知
 - Hikimori Nekoの **CHZZK 1チャンネル + YouTube 2チャンネル** 標準プロフィール
 - 複数の配信者プロフィール
@@ -808,19 +895,25 @@ HIKI Notifier는 비공식 팬메이드 유틸리티입니다.
 - 同一プラットフォームの別チャンネルを複数登録可能
 - チャンネルごとの通知ON / OFF
 - チャンネルごとの配信ページ自動オープン
-- 通知をクリックして配信・コンテンツページを開く
+- 通知から配信・コンテンツページを開く
+- プロフィールごとの通知カスタマイズ
 - プロフィールごとの通知背景・文字色設定
-- プロフィールごとの通知背景画像 ON / OFF
+- プロフィールごとの通知背景画像/メディア ON / OFF
 - プロフィールごとの配信・動画サムネイル背景
 - カスタム背景や利用可能なサムネイルがない場合のHIKI標準背景
-- JPG / JPEG / アニメーションGIFのカスタム通知背景
+- **JPG / JPEG / PNG / GIF / WebP / WebM** カスタム通知背景
+- 静止WebP・アニメーションWebP対応
+- VP8 / VP9 / AV1 WebM背景対応
+- 通常のWAV通知音とは独立した通知背景メディア音声のON / OFF
 - ヘッダー / 本文フォントサイズ調整
+- 文字アウトライン色と **アウトライン太さ 0～6 px** の調整
 - 通知の透明度・表示時間調整
 - 保存前の通知テスト
-- ウィンドウサイズに合わせてプロフィール/チャンネル一覧が広がるメイン画面
+- テスト通知で読み込まれているProviderロゴをランダムにプレビュー
+- プロフィールごとの通知音: 標準内蔵WAV / カスタムWAV / 無音
+- DPI対応・サイズ変更可能なメイン画面
 - 標準 / ダークテーマ
 - カテゴリ別の内蔵ヘルプ
-- 内蔵通知音 / カスタムWAV / 無音
 - 二重起動防止による重複ポーリング・重複通知の防止
 - システムトレイ常駐
 - Windows起動時の自動実行
@@ -861,7 +954,7 @@ Hikimori Neko
 
 標準プロフィールと登録済みチャンネルURLは削除・変更できません。
 
-各チャンネルの通知設定と通知外観は変更できます。
+各チャンネルの通知設定、通知外観、通知音は変更できます。
 
 ---
 
@@ -881,7 +974,7 @@ https://kick.com/CHANNEL
 https://twitcasting.tv/CHANNEL
 ```
 
-対応しているプラットフォームURLは自動的に認識されます。
+対応しているプラットフォームURLは、インストールされているProviderによって自動的に認識されます。
 
 1つのプロフィールに複数のチャンネルを登録でき、同じプラットフォームの別チャンネルも複数登録できます。
 
@@ -899,10 +992,11 @@ https://twitcasting.tv/CHANNEL
 - 配信タイトル
 - カテゴリ
 - 現在の視聴者数
+- 配信・動画サムネイル
 
 YouTubeでは、新しい動画またはShortsが確認されると新着コンテンツ通知を受け取れます。
 
-通知ウィンドウをクリックすると、対象の配信またはコンテンツページを既定のブラウザーで開けます。
+通知に用意された配信/コンテンツを開く操作から、対象ページを既定のブラウザーで開けます。
 
 ---
 
@@ -918,48 +1012,65 @@ YouTubeでは、新しい動画またはShortsが確認されると新着コン�
 
 ## 通知カスタマイズ
 
-配信者プロフィールごとに、通知背景画像の使用、サムネイル背景の使用、カスタム背景、文字色を個別に設定できます。
+配信者プロフィールごとに、通知背景、文字スタイル、通知音などを個別に設定できます。
 
 ### プロフィールごとの設定
 
-- 通知の背景画像を使用
+- 通知の背景画像/メディアを使用
 - 動画のサムネイルを通知背景に使用
-- カスタム背景画像
+- カスタム背景画像/メディア
 - 文字色
 - 文字アウトライン色
+- 文字アウトライン太さ: **0～6 px**
+- 通知音モード
+- カスタムWAV選択
 
-通知背景画像を有効にしている場合、背景の優先順位は次のとおりです。
+通知背景を有効にしている場合、通常の背景優先順位は次のとおりです。
 
-1. **プロフィールに設定したカスタム背景**
+1. **プロフィールに設定したカスタム背景/メディア**
 2. **配信・動画サムネイル** — オプションが有効で、利用できる場合
 3. **HIKI標準背景画像**
 
-**通知の背景画像を使用**を無効にすると、画像を使わない従来の通知スタイルで表示されます。
+**通知の背景画像を使用**を無効にすると、画像を使わない通知スタイルで表示されます。
 
 対応ライブ配信プラットフォームの通知では配信サムネイルを利用でき、YouTubeの新着動画・Shorts通知では動画サムネイルを利用できます。
 
-### すべての通知に共通する設定
+### 文字 / 表示設定
 
 - ヘッダーフォントサイズ: **12～20 pt**
 - 本文フォントサイズ: **10～16 pt**
+- 文字アウトライン太さ: **0～6 px**
 - 通知透明度: **50～100%**
 - 通知表示時間: **3～30秒**
 
-対応カスタム背景形式:
+### 対応カスタム背景形式
 
 - JPG
 - JPEG
+- PNG
 - GIF
+- WebP
+- WebM
 
-カスタム背景画像の条件:
+アニメーションGIFとアニメーションWebPは通知表示中に繰り返し再生されます。
 
-- 正確に **480 × 270**
-- 最大 **15 MB**
-- アニメーションGIFは通知表示中に繰り返し再生
+WebMはアプリで検証されたVP8 / VP9 / AV1再生経路を使用します。WebMなどの背景メディア音声は、通常のWAV通知音とは独立してON / OFFできます。
 
-保存前に現在の設定で通知をテストできます。
+ファイルが存在しない、破損している、または未対応のメディアの場合でも、通知そのものが停止しないよう安全に標準背景へフォールバックします。
 
-配信・コンテンツタイトルは最大2行まで表示され、画像背景上でも文字を読みやすいレイアウトになっています。
+保存前に現在の設定と通知音で通知をテストできます。テスト通知では、そのプロフィールに登録されているチャンネル種類とは関係なく、読み込まれているProviderのいずれかのロゴをランダムに表示できます。
+
+配信・コンテンツタイトルは最大2行まで表示され、画像・動画背景上でも文字を読みやすいレイアウトになっています。
+
+---
+
+## メイン画面の背景メディア
+
+メイン画面も既存のスキン/背景システムを利用してカスタム背景メディアを使用できます。
+
+画像形式に加えてWebPとWebMを利用でき、アニメーションメディアはメインウィンドウが非表示または最小化されている間は一時停止し、再表示時に再生を再開します。
+
+メイン背景メディアの音声は任意で、通常の通知WAVおよび通知背景メディア音声とは別に管理されます。
 
 ---
 
@@ -993,13 +1104,17 @@ YouTubeでは、新しい動画またはShortsが確認されると新着コン�
 
 ## 通知音
 
+通知音は **配信者プロフィールごとに通知カスタマイズ画面で設定**します。
+
 利用できるモード:
 
-- 内蔵通知音
-- カスタムWAV
-- 無音
+- **標準の内蔵WAV通知音**
+- **カスタムWAV**
+- **無音**
 
-通知音は **設定** から変更できます。
+プロフィールごとに別々のカスタムWAVを設定できます。
+
+通常のWAV通知音は、WebMなどの通知背景メディアに含まれる音声とは別の機能です。
 
 ---
 
@@ -1057,7 +1172,7 @@ Profiles\
 settings.json
 ```
 
-通知背景などのプロフィール別ファイルもプロフィールデータと一緒に保存されます。
+プロフィールごとの通知背景、メディア参照、通知音などもアプリのプロフィール保存構造に従って一緒に保存されます。
 
 ---
 
@@ -1117,8 +1232,10 @@ HIKI Notifierは非公式のファンメイドユーティリティです。
 
 ## ライセンス
 
-このリポジトリには現在、オープンソースライセンスは提供されていません。
+HIKI Notifierプロジェクトのソースコードには現在、オープンソースライセンスは提供されていません。
 
 **Copyright © Eltax. All rights reserved.**
 
 第三者の商標、サービス名、および外部由来のアセットには、それぞれの権利者およびライセンス条件が適用されます。
+
+配布物に含まれる第三者ランタイムコンポーネントには、それぞれのライセンスが適用されます。関連する通知とライセンス本文は、配布物の `Providers/Module/ThirdPartyNotices.md` および `Providers/Module/Licenses/` を参照してください。
