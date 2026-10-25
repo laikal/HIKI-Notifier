@@ -2,7 +2,7 @@
 
 **English | [한국어](#한국어) | [日本語](#日本語)**
 
-**Current release: v1.280**
+**Current release: v1.290**
 
 A lightweight Windows notification utility for monitoring multiple streaming platforms and new content.
 
@@ -31,6 +31,13 @@ No account login is required for supported platform monitoring.
 > **Unofficial fan-made utility**  
 > HIKI Notifier is not affiliated with or endorsed by any supported platform or its operator.
 
+### What's new in v1.290
+
+- Improved portable data storage and migration from older installations.
+- Fixed cases where deleted streamer profiles could reappear.
+- Improved YouTube content-history saving and synchronization stability.
+- Improved custom WAV asset handling and temporary-file cleanup.
+
 ---
 
 ## Screenshots
@@ -51,7 +58,7 @@ No account login is required for supported platform monitoring.
 
 ![CHZZK notification example](img/1.27_alret_3.jpg)
 
-> The screenshots above are from the 1.27 UI. The overall layout remains representative of v1.280.
+> Screenshots show the earlier 1.27 UI; some details may differ in v1.290.
 
 ---
 
@@ -415,7 +422,7 @@ Bundled third-party runtime components retain their own licenses. See the distri
 
 **[English](#hiki-notifier) | 한국어 | [日本語](#日本語)**
 
-**현재 버전: v1.280**
+**현재 버전: v1.290**
 
 **HIKI Notifier**는 여러 스트리밍 플랫폼의 방송 상태와 새 콘텐츠를 확인하고 Windows 알림으로 알려주는 가벼운 상주형 알림 유틸리티입니다.
 
@@ -444,6 +451,13 @@ Bundled third-party runtime components retain their own licenses. See the distri
 > **비공식 팬메이드 유틸리티**  
 > HIKI Notifier는 지원 플랫폼 또는 관련 운영사의 공식 프로그램이 아닙니다.
 
+### v1.290 주요 변경 사항
+
+- 포터블 데이터 저장 및 기존 버전 데이터 마이그레이션 개선
+- 삭제한 스트리머 프로파일이 다시 나타나는 문제 수정
+- YouTube 콘텐츠 기록 저장 및 동기화 안정성 개선
+- 사용자 지정 WAV 파일 처리와 임시 파일 정리 개선
+
 ---
 
 ## 스크린샷
@@ -464,7 +478,7 @@ Bundled third-party runtime components retain their own licenses. See the distri
 
 ![CHZZK 알림창 예시](img/1.27_alret_3.jpg)
 
-> 위 스크린샷은 1.27 UI 기준이며, 전체적인 화면 구성은 v1.280에서도 동일한 흐름을 유지합니다.
+> 위 스크린샷은 1.27 UI 기준으로, v1.290에서는 일부 세부 구성이 다를 수 있습니다.
 
 ---
 
@@ -830,7 +844,7 @@ HIKI Notifier 프로젝트 소스 코드에는 현재 별도의 오픈소스 라
 
 **[English](#hiki-notifier) | [한국어](#한국어) | 日本語**
 
-**現在のバージョン: v1.280**
+**現在のバージョン: v1.290**
 
 **HIKI Notifier** は、複数の配信プラットフォームの配信状況や新着コンテンツを確認し、Windows通知で知らせる軽量な常駐型通知ユーティリティです。
 
@@ -859,6 +873,13 @@ HIKI Notifier 프로젝트 소스 코드에는 현재 별도의 오픈소스 라
 > **非公式ファンメイドユーティリティ**  
 > HIKI Notifierは、各対応プラットフォームまたはその運営会社が公式に提供・承認するソフトウェアではありません。
 
+### v1.290 の主な変更点
+
+- ポータブルデータの保存と旧バージョンからの移行処理を改善
+- 削除済みの配信者プロフィールが再表示される問題を修正
+- YouTubeのコンテンツ履歴保存と同期処理の安定性を改善
+- カスタムWAVファイルの管理と一時ファイルのクリーンアップを改善
+
 ---
 
 ## スクリーンショット
@@ -879,7 +900,7 @@ HIKI Notifier 프로젝트 소스 코드에는 현재 별도의 오픈소스 라
 
 ![CHZZK 通知例](img/1.27_alret_3.jpg)
 
-> 上記のスクリーンショットは1.27 UIのものですが、v1.280でも全体的なレイアウトは同じ流れを維持しています。
+> スクリーンショットは旧1.27 UIのものです。v1.290では一部の表示が異なる場合があります。
 
 ---
 
