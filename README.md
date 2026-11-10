@@ -28,8 +28,8 @@ Additional streamer profiles can be added manually, and one profile can contain 
 
 No account login is required for supported platform monitoring.
 
-> **Unofficial fan-made utility**  
-> HIKI Notifier is not affiliated with or endorsed by any supported platform or its operator.
+> **Fan-made notification utility**  
+> Developed and maintained by Eltax.
 
 ### What's new in v1.291
 
@@ -393,15 +393,15 @@ The built-in HIKI notification background is included with permission from Hikim
 
 ---
 
-## Disclaimer
+## About HIKI Notifier
 
-HIKI Notifier is an unofficial fan-made utility.
+HIKI Notifier is a **fan-made Windows notification utility developed and maintained by Eltax**.
 
-It is not affiliated with or endorsed by any supported platform or its operator.
+Created to make it easier to follow Hikimori Neko’s broadcasts, it also supports other streamers and platforms.
 
 All service names and trademarks belong to their respective owners.
 
-Changes to service APIs, public feeds, or web structures may cause some features to stop working correctly.
+Changes to service APIs, public feeds, or web structures may affect some features.
 
 ---
 
@@ -447,8 +447,8 @@ Bundled third-party runtime components retain their own licenses. See the distri
 
 지원 플랫폼의 방송 상태 확인에는 계정 로그인이 필요하지 않습니다.
 
-> **비공식 팬메이드 유틸리티**  
-> HIKI Notifier는 지원 플랫폼 또는 관련 운영사의 공식 프로그램이 아닙니다.
+> **팬메이드 방송 알림 프로그램**  
+> Eltax가 제작하고 관리합니다.
 
 ### v1.291 주요 변경 사항
 
@@ -814,15 +814,15 @@ lang\*.ini
 
 ---
 
-## 면책 고지
+## 프로그램 안내
 
-HIKI Notifier는 비공식 팬메이드 유틸리티입니다.
+HIKI Notifier는 **Eltax가 제작하고 관리하는 팬메이드 방송 알림 프로그램**입니다.
 
-지원 플랫폼 또는 관련 운영사와 공식적으로 제휴하거나 승인받은 프로그램이 아닙니다.
+Hikimori Neko의 방송을 편리하게 확인하기 위해 시작된 프로젝트로, 다른 스트리머와 플랫폼의 방송 및 콘텐츠 알림도 지원합니다.
 
 각 서비스명과 상표는 해당 권리자에게 귀속됩니다.
 
-서비스 측 API, 공개 피드 또는 웹 구조가 변경될 경우 일부 기능이 정상적으로 동작하지 않을 수 있습니다.
+플랫폼의 API, 공개 피드 또는 웹 구조가 변경되면 일부 기능이 영향을 받을 수 있습니다.
 
 ---
 
@@ -868,8 +868,8 @@ HIKI Notifier 프로젝트 소스 코드에는 현재 별도의 오픈소스 라
 
 対応プラットフォームの確認にアカウントログインは必要ありません。
 
-> **非公式ファンメイドユーティリティ**  
-> HIKI Notifierは、各対応プラットフォームまたはその運営会社が公式に提供・承認するソフトウェアではありません。
+> **ファンメイドの配信通知ユーティリティ**  
+> Eltaxが開発・管理しています。
 
 ### v1.291 の主な変更点
 
@@ -1236,15 +1236,15 @@ lang\*.ini
 
 ---
 
-## 免責事項
+## プログラムについて
 
-HIKI Notifierは非公式のファンメイドユーティリティです。
+HIKI Notifierは、**Eltaxが開発・管理するファンメイドのWindows配信通知ユーティリティ**です。
 
-各対応プラットフォームまたはその運営会社とは公式な提携関係になく、承認を受けたソフトウェアでもありません。
+Hikimori Nekoの配信を便利に確認するために始まったプロジェクトで、ほかの配信者やプラットフォームの配信・新着コンテンツ通知にも対応しています。
 
 各サービス名および商標は、それぞれの権利者に帰属します。
 
-サービス側のAPI、公開フィード、Web構造などが変更された場合、一部の機能が正常に動作しなくなる可能性があります。
+プラットフォームのAPI、公開フィード、Web構造などの変更により、一部の機能に影響が生じる場合があります。
 
 ---
 
