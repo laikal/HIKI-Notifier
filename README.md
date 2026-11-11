@@ -2,7 +2,7 @@
 
 **English | [한국어](#한국어) | [日本語](#日本語)**
 
-**Current release: v1.291**
+**Current release: v1.292**
 
 A lightweight Windows notification utility for monitoring multiple streaming platforms and new content.
 
@@ -31,11 +31,12 @@ No account login is required for supported platform monitoring.
 > **Fan-made notification utility**  
 > Developed and maintained by Eltax.
 
-### What's new in v1.291
+### What's new in v1.292
 
-- Fixed a Windows USER handle leak during repeated system-tray menu updates.
-- Avoids unnecessary tray-menu rebuilding when the menu contents have not changed.
-- Improved long-running stability during repeated channel status updates.
+- Improved the skin editor's color-tab layout and color control alignment.
+- Fixed unwanted horizontal scrolling in the color settings panel.
+- Improved consistency between selected skin colors and the preview.
+- Fixed additional issues affecting stability during extended operation.
 
 ---
 
@@ -57,7 +58,7 @@ No account login is required for supported platform monitoring.
 
 ![CHZZK notification example](img/1.27_alret_3.jpg)
 
-> Screenshots show the earlier 1.27 UI; some details may differ in v1.291.
+> Screenshots show the earlier 1.27 UI; some details may differ in v1.292.
 
 ---
 
@@ -413,15 +414,13 @@ No open-source license is currently provided for the HIKI Notifier project sourc
 
 Third-party trademarks, service names, and externally sourced assets remain subject to the rights and license terms of their respective owners.
 
-Bundled third-party runtime components retain their own licenses. See the distributed `Providers/Module/ThirdPartyNotices.md` and `Providers/Module/Licenses/` files for applicable notices and license texts.
-
 ---
 
 # 한국어
 
 **[English](#hiki-notifier) | 한국어 | [日本語](#日本語)**
 
-**현재 버전: v1.291**
+**현재 버전: v1.292**
 
 **HIKI Notifier**는 여러 스트리밍 플랫폼의 방송 상태와 새 콘텐츠를 확인하고 Windows 알림으로 알려주는 가벼운 상주형 알림 유틸리티입니다.
 
@@ -450,11 +449,12 @@ Bundled third-party runtime components retain their own licenses. See the distri
 > **팬메이드 방송 알림 프로그램**  
 > Eltax가 제작하고 관리합니다.
 
-### v1.291 주요 변경 사항
+### v1.292 주요 변경 사항
 
-- 시스템 트레이 메뉴 반복 갱신 시 Windows USER 핸들이 누적되던 문제 수정
-- 메뉴 구성이 변경되지 않은 경우 불필요한 트레이 메뉴 재생성을 생략하도록 개선
-- 반복적인 채널 상태 갱신과 장시간 실행 시 안정성 개선
+- 스킨 편집창의 색상 탭 배치와 색상 선택 컨트롤 정렬 개선
+- 색상 설정 영역에서 발생하던 불필요한 가로 스크롤 문제 수정
+- 선택한 스킨 색상과 미리보기 표시의 일관성 개선
+- 장시간 실행 시 안정성에 영향을 줄 수 있는 일부 버그 수정
 
 ---
 
@@ -476,7 +476,7 @@ Bundled third-party runtime components retain their own licenses. See the distri
 
 ![CHZZK 알림창 예시](img/1.27_alret_3.jpg)
 
-> 위 스크린샷은 1.27 UI 기준으로, v1.291에서는 일부 세부 구성이 다를 수 있습니다.
+> 위 스크린샷은 1.27 UI 기준으로, v1.292에서는 일부 세부 구성이 다를 수 있습니다.
 
 ---
 
@@ -834,15 +834,13 @@ HIKI Notifier 프로젝트 소스 코드에는 현재 별도의 오픈소스 라
 
 제3자 상표, 서비스명 및 외부 출처 자산은 각 권리자와 해당 라이선스 조건에 따릅니다.
 
-배포본에 포함된 제3자 런타임 구성 요소에는 각각의 라이선스가 적용됩니다. 관련 고지와 라이선스 원문은 배포본의 `Providers/Module/ThirdPartyNotices.md` 및 `Providers/Module/Licenses/`를 확인하세요.
-
 ---
 
 # 日本語
 
 **[English](#hiki-notifier) | [한국어](#한국어) | 日本語**
 
-**現在のバージョン: v1.291**
+**現在のバージョン: v1.292**
 
 **HIKI Notifier** は、複数の配信プラットフォームの配信状況や新着コンテンツを確認し、Windows通知で知らせる軽量な常駐型通知ユーティリティです。
 
@@ -871,11 +869,12 @@ HIKI Notifier 프로젝트 소스 코드에는 현재 별도의 오픈소스 라
 > **ファンメイドの配信通知ユーティリティ**  
 > Eltaxが開発・管理しています。
 
-### v1.291 の主な変更点
+### v1.292 の主な変更点
 
-- システムトレイメニューの繰り返し更新でWindowsのUSERハンドルが蓄積する問題を修正
-- メニュー構成に変更がない場合、不要なトレイメニューの再構築を省略
-- チャンネル状態の繰り返し更新や長時間動作時の安定性を改善
+- スキン編集画面の色設定タブのレイアウトとカラー選択欄の配置を改善
+- 色設定パネルで発生していた不要な横スクロールを修正
+- 選択したスキンの色とプレビュー表示の一貫性を改善
+- 長時間の動作時に安定性へ影響する可能性のある不具合を修正
 
 ---
 
@@ -897,7 +896,7 @@ HIKI Notifier 프로젝트 소스 코드에는 현재 별도의 오픈소스 라
 
 ![CHZZK 通知例](img/1.27_alret_3.jpg)
 
-> スクリーンショットは旧1.27 UIのものです。v1.291では一部の表示が異なる場合があります。
+> スクリーンショットは旧1.27 UIのものです。v1.292では一部の表示が異なる場合があります。
 
 ---
 
@@ -1255,5 +1254,3 @@ HIKI Notifierプロジェクトのソースコードには現在、オープン�
 **Copyright © Eltax. All rights reserved.**
 
 第三者の商標、サービス名、および外部由来のアセットには、それぞれの権利者およびライセンス条件が適用されます。
-
-配布物に含まれる第三者ランタイムコンポーネントには、それぞれのライセンスが適用されます。関連する通知とライセンス本文は、配布物の `Providers/Module/ThirdPartyNotices.md` および `Providers/Module/Licenses/` を参照してください。
