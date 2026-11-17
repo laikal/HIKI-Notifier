@@ -33,10 +33,9 @@ No account login is required for supported platform monitoring.
 
 ### What's new in v1.293
 
-- Restored RPLAY LIVE / OFFLINE monitoring and stream-title retrieval without requiring an RPLAY login.
-- Updated RPLAY monitoring to read publicly visible broadcast information through Microsoft Edge WebView2.
-- Improved RPLAY notification reliability with safer UNKNOWN handling, timeouts, and recovery from browser errors.
-- Fixed RPLAY status-check issues that could interrupt subsequent channel checks.
+- Fixed RPLAY LIVE / OFFLINE detection issues.
+- Restored RPLAY stream-title retrieval and improved live notifications.
+- Improved RPLAY monitoring stability and error handling.
 
 ---
 
@@ -306,9 +305,9 @@ Because YouTube monitoring depends on publicly available YouTube data, future ch
 
 ## RPLAY Monitoring
 
-RPLAY LIVE / OFFLINE status and stream titles are checked from publicly visible broadcast information through Microsoft Edge WebView2. No RPLAY login or video playback is required.
+HIKI Notifier monitors RPLAY LIVE / OFFLINE status and stream titles and notifies you when a new broadcast is detected.
 
-RPLAY monitoring requires the **Microsoft Edge WebView2 Runtime** installed on Windows. If the broadcast status cannot be determined, HIKI Notifier displays **UNKNOWN** instead of incorrectly reporting OFFLINE.
+If the current broadcast status cannot be determined, it is shown as **UNKNOWN** rather than incorrectly reported as OFFLINE.
 
 ---
 
@@ -383,7 +382,6 @@ If a translation key is missing, English is used as the fallback.
 - 64-bit Windows 10 or Windows 11
 - x64 processor
 - .NET Framework 4.8
-- Microsoft Edge WebView2 Runtime (required for RPLAY monitoring; not bundled with the Portable ZIP)
 
 ---
 
@@ -460,10 +458,9 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 
 ### v1.293 주요 변경 사항
 
-- RPLAY 로그인 없이 LIVE / OFFLINE 상태와 방송 제목을 확인하는 기능 복구
-- Microsoft Edge WebView2를 이용해 RPLAY 공개 방송 페이지의 정보를 확인하도록 개선
-- 상태 확인이 불확실할 때 UNKNOWN으로 안전하게 처리하고, 타임아웃 및 브라우저 오류 복구 기능 보강
-- 특정 채널 조회 지연이 다른 채널 감시를 막지 않도록 안정성 개선
+- RPLAY LIVE / OFFLINE 감지 오류 수정
+- RPLAY 방송 제목 표시 및 방송 시작 알림 기능 복구
+- RPLAY 감시 안정성과 오류 처리 개선
 
 ---
 
@@ -735,9 +732,9 @@ YouTube에서 공개하는 정보에 의존하는 기능이므로 향후 YouTube
 
 ## RPLAY 방송 감지
 
-RPLAY는 Microsoft Edge WebView2를 이용해 공개 방송 페이지에 표시되는 LIVE / OFFLINE 상태와 방송 제목을 확인합니다. RPLAY 로그인이나 영상 재생은 필요하지 않습니다.
+HIKI Notifier는 RPLAY 방송 상태와 제목을 확인하고 새 방송 시작을 알려줍니다.
 
-RPLAY 감지 기능을 사용하려면 Windows에 **Microsoft Edge WebView2 Runtime**이 설치되어 있어야 합니다. 방송 상태를 확실히 확인할 수 없을 때는 OFFLINE으로 잘못 판단하지 않고 **UNKNOWN**으로 표시합니다.
+현재 방송 상태를 확실히 확인할 수 없으면 OFFLINE으로 잘못 판단하지 않고 **UNKNOWN**으로 표시합니다.
 
 ---
 
@@ -812,7 +809,6 @@ lang\*.ini
 - 64비트 Windows 10 또는 Windows 11
 - x64 프로세서
 - .NET Framework 4.8
-- Microsoft Edge WebView2 Runtime (RPLAY 방송 감지에 필요하며 Portable ZIP에는 포함되지 않음)
 
 ---
 
@@ -889,10 +885,9 @@ HIKI Notifier 프로젝트 소스 코드에는 현재 별도의 오픈소스 라
 
 ### v1.293 の主な変更点
 
-- RPLAYへのログイン不要でLIVE / OFFLINE状態と配信タイトルを確認できる機能を復旧
-- Microsoft Edge WebView2を利用し、RPLAYの公開配信ページから情報を取得する方式に変更
-- 状態を判断できない場合のUNKNOWN処理、タイムアウト、ブラウザーエラーからの復旧を改善
-- 一部のチャンネルで確認が遅れても、ほかのチャンネルの監視を妨げないよう安定性を改善
+- RPLAYのLIVE / OFFLINE検知の不具合を修正
+- RPLAYの配信タイトル表示と配信開始通知を復旧
+- RPLAY監視の安定性とエラー処理を改善
 
 ---
 
@@ -1165,9 +1160,9 @@ YouTubeが公開している情報を利用する機能のため、YouTube側の
 
 ## RPLAYの配信監視
 
-RPLAYではMicrosoft Edge WebView2を使用し、公開配信ページに表示されるLIVE / OFFLINE状態と配信タイトルを確認します。RPLAYへのログインや動画再生は不要です。
+HIKI NotifierはRPLAYの配信状態とタイトルを確認し、新しい配信の開始を通知します。
 
-RPLAYの監視には、Windowsに**Microsoft Edge WebView2 Runtime**がインストールされている必要があります。配信状態を判断できない場合は、誤ってOFFLINEとせず**UNKNOWN**と表示します。
+配信状態を判定できない場合は、誤ってOFFLINEとせず**UNKNOWN**と表示します。
 
 ---
 
@@ -1242,7 +1237,6 @@ lang\*.ini
 - 64-bit Windows 10 または Windows 11
 - x64プロセッサ
 - .NET Framework 4.8
-- Microsoft Edge WebView2 Runtime（RPLAYの監視に必要。Portable ZIPには同梱されません）
 
 ---
 
