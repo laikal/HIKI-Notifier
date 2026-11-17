@@ -2,7 +2,7 @@
 
 **English | [한국어](#한국어) | [日本語](#日本語)**
 
-**Current release: v1.292**
+**Current release: v1.293**
 
 A lightweight Windows notification utility for monitoring multiple streaming platforms and new content.
 
@@ -10,7 +10,7 @@ A lightweight Windows notification utility for monitoring multiple streaming pla
 
 - **CHZZK** — LIVE status, stream title, viewer count, thumbnails, and live notifications
 - **YouTube** — New video and Shorts notifications
-- **RPLAY** — LIVE status and live notifications
+- **RPLAY** — LIVE / OFFLINE status, stream title, and live notifications
 - **Twitch** — LIVE status and live notifications
 - **SOOP** — LIVE status and live notifications
 - **CIME** — LIVE status, stream title, viewer information, and live notifications
@@ -31,12 +31,12 @@ No account login is required for supported platform monitoring.
 > **Fan-made notification utility**  
 > Developed and maintained by Eltax.
 
-### What's new in v1.292
+### What's new in v1.293
 
-- Improved the skin editor's color-tab layout and color control alignment.
-- Fixed unwanted horizontal scrolling in the color settings panel.
-- Improved consistency between selected skin colors and the preview.
-- Fixed additional issues affecting stability during extended operation.
+- Restored RPLAY LIVE / OFFLINE monitoring and stream-title retrieval without requiring an RPLAY login.
+- Updated RPLAY monitoring to read publicly visible broadcast information through Microsoft Edge WebView2.
+- Improved RPLAY notification reliability with safer UNKNOWN handling, timeouts, and recovery from browser errors.
+- Fixed RPLAY status-check issues that could interrupt subsequent channel checks.
 
 ---
 
@@ -58,7 +58,7 @@ No account login is required for supported platform monitoring.
 
 ![CHZZK notification example](img/1.27_alret_3.jpg)
 
-> Screenshots show the earlier 1.27 UI; some details may differ in v1.292.
+> Screenshots show the earlier 1.27 UI; some details may differ in v1.293.
 
 ---
 
@@ -304,6 +304,14 @@ Because YouTube monitoring depends on publicly available YouTube data, future ch
 
 ---
 
+## RPLAY Monitoring
+
+RPLAY LIVE / OFFLINE status and stream titles are checked from publicly visible broadcast information through Microsoft Edge WebView2. No RPLAY login or video playback is required.
+
+RPLAY monitoring requires the **Microsoft Edge WebView2 Runtime** installed on Windows. If the broadcast status cannot be determined, HIKI Notifier displays **UNKNOWN** instead of incorrectly reporting OFFLINE.
+
+---
+
 ## System Tray
 
 Closing or minimizing the main window does **not** exit HIKI Notifier.
@@ -375,6 +383,7 @@ If a translation key is missing, English is used as the fallback.
 - 64-bit Windows 10 or Windows 11
 - x64 processor
 - .NET Framework 4.8
+- Microsoft Edge WebView2 Runtime (required for RPLAY monitoring; not bundled with the Portable ZIP)
 
 ---
 
@@ -420,7 +429,7 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 
 **[English](#hiki-notifier) | 한국어 | [日本語](#日本語)**
 
-**현재 버전: v1.292**
+**현재 버전: v1.293**
 
 **HIKI Notifier**는 여러 스트리밍 플랫폼의 방송 상태와 새 콘텐츠를 확인하고 Windows 알림으로 알려주는 가벼운 상주형 알림 유틸리티입니다.
 
@@ -428,7 +437,7 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 
 - **CHZZK** — 방송 상태, 방송 제목, 시청자 수, 썸네일 및 방송 시작 알림
 - **YouTube** — 새 영상 및 Shorts 알림
-- **RPLAY** — 방송 상태 및 방송 시작 알림
+- **RPLAY** — LIVE / OFFLINE 상태, 방송 제목 및 방송 시작 알림
 - **Twitch** — 방송 상태 및 방송 시작 알림
 - **SOOP** — 방송 상태 및 방송 시작 알림
 - **CIME(씨미)** — 방송 상태, 방송 제목, 시청자 정보 및 방송 시작 알림
@@ -449,12 +458,12 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 > **팬메이드 방송 알림 프로그램**  
 > Eltax가 제작하고 관리합니다.
 
-### v1.292 주요 변경 사항
+### v1.293 주요 변경 사항
 
-- 스킨 편집창의 색상 탭 배치와 색상 선택 컨트롤 정렬 개선
-- 색상 설정 영역에서 발생하던 불필요한 가로 스크롤 문제 수정
-- 선택한 스킨 색상과 미리보기 표시의 일관성 개선
-- 장시간 실행 시 안정성에 영향을 줄 수 있는 일부 버그 수정
+- RPLAY 로그인 없이 LIVE / OFFLINE 상태와 방송 제목을 확인하는 기능 복구
+- Microsoft Edge WebView2를 이용해 RPLAY 공개 방송 페이지의 정보를 확인하도록 개선
+- 상태 확인이 불확실할 때 UNKNOWN으로 안전하게 처리하고, 타임아웃 및 브라우저 오류 복구 기능 보강
+- 특정 채널 조회 지연이 다른 채널 감시를 막지 않도록 안정성 개선
 
 ---
 
@@ -476,7 +485,7 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 
 ![CHZZK 알림창 예시](img/1.27_alret_3.jpg)
 
-> 위 스크린샷은 1.27 UI 기준으로, v1.292에서는 일부 세부 구성이 다를 수 있습니다.
+> 위 스크린샷은 1.27 UI 기준으로, v1.293에서는 일부 세부 구성이 다를 수 있습니다.
 
 ---
 
@@ -724,6 +733,14 @@ YouTube에서 공개하는 정보에 의존하는 기능이므로 향후 YouTube
 
 ---
 
+## RPLAY 방송 감지
+
+RPLAY는 Microsoft Edge WebView2를 이용해 공개 방송 페이지에 표시되는 LIVE / OFFLINE 상태와 방송 제목을 확인합니다. RPLAY 로그인이나 영상 재생은 필요하지 않습니다.
+
+RPLAY 감지 기능을 사용하려면 Windows에 **Microsoft Edge WebView2 Runtime**이 설치되어 있어야 합니다. 방송 상태를 확실히 확인할 수 없을 때는 OFFLINE으로 잘못 판단하지 않고 **UNKNOWN**으로 표시합니다.
+
+---
+
 ## 시스템 트레이
 
 메인 창을 닫거나 최소화해도 HIKI Notifier는 종료되지 않습니다.
@@ -795,6 +812,7 @@ lang\*.ini
 - 64비트 Windows 10 또는 Windows 11
 - x64 프로세서
 - .NET Framework 4.8
+- Microsoft Edge WebView2 Runtime (RPLAY 방송 감지에 필요하며 Portable ZIP에는 포함되지 않음)
 
 ---
 
@@ -840,7 +858,7 @@ HIKI Notifier 프로젝트 소스 코드에는 현재 별도의 오픈소스 라
 
 **[English](#hiki-notifier) | [한국어](#한국어) | 日本語**
 
-**現在のバージョン: v1.292**
+**現在のバージョン: v1.293**
 
 **HIKI Notifier** は、複数の配信プラットフォームの配信状況や新着コンテンツを確認し、Windows通知で知らせる軽量な常駐型通知ユーティリティです。
 
@@ -848,7 +866,7 @@ HIKI Notifier 프로젝트 소스 코드에는 현재 별도의 오픈소스 라
 
 - **CHZZK** — 配信状態、配信タイトル、視聴者数、サムネイル、配信開始通知
 - **YouTube** — 新着動画・Shorts通知
-- **RPLAY** — 配信状態、配信開始通知
+- **RPLAY** — LIVE / OFFLINE 状態、配信タイトル、配信開始通知
 - **Twitch** — 配信状態、配信開始通知
 - **SOOP** — 配信状態、配信開始通知
 - **CIME** — 配信状態、配信タイトル、視聴者情報、配信開始通知
@@ -869,12 +887,12 @@ HIKI Notifier 프로젝트 소스 코드에는 현재 별도의 오픈소스 라
 > **ファンメイドの配信通知ユーティリティ**  
 > Eltaxが開発・管理しています。
 
-### v1.292 の主な変更点
+### v1.293 の主な変更点
 
-- スキン編集画面の色設定タブのレイアウトとカラー選択欄の配置を改善
-- 色設定パネルで発生していた不要な横スクロールを修正
-- 選択したスキンの色とプレビュー表示の一貫性を改善
-- 長時間の動作時に安定性へ影響する可能性のある不具合を修正
+- RPLAYへのログイン不要でLIVE / OFFLINE状態と配信タイトルを確認できる機能を復旧
+- Microsoft Edge WebView2を利用し、RPLAYの公開配信ページから情報を取得する方式に変更
+- 状態を判断できない場合のUNKNOWN処理、タイムアウト、ブラウザーエラーからの復旧を改善
+- 一部のチャンネルで確認が遅れても、ほかのチャンネルの監視を妨げないよう安定性を改善
 
 ---
 
@@ -896,7 +914,7 @@ HIKI Notifier 프로젝트 소스 코드에는 현재 별도의 오픈소스 라
 
 ![CHZZK 通知例](img/1.27_alret_3.jpg)
 
-> スクリーンショットは旧1.27 UIのものです。v1.292では一部の表示が異なる場合があります。
+> スクリーンショットは旧1.27 UIのものです。v1.293では一部の表示が異なる場合があります。
 
 ---
 
@@ -1145,6 +1163,14 @@ YouTubeが公開している情報を利用する機能のため、YouTube側の
 
 ---
 
+## RPLAYの配信監視
+
+RPLAYではMicrosoft Edge WebView2を使用し、公開配信ページに表示されるLIVE / OFFLINE状態と配信タイトルを確認します。RPLAYへのログインや動画再生は不要です。
+
+RPLAYの監視には、Windowsに**Microsoft Edge WebView2 Runtime**がインストールされている必要があります。配信状態を判断できない場合は、誤ってOFFLINEとせず**UNKNOWN**と表示します。
+
+---
+
 ## システムトレイ
 
 メインウィンドウを閉じたり最小化したりしてもHIKI Notifierは終了しません。
@@ -1216,6 +1242,7 @@ lang\*.ini
 - 64-bit Windows 10 または Windows 11
 - x64プロセッサ
 - .NET Framework 4.8
+- Microsoft Edge WebView2 Runtime（RPLAYの監視に必要。Portable ZIPには同梱されません）
 
 ---
 
