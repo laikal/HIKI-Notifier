@@ -2,7 +2,7 @@
 
 **English | [한국어](#한국어) | [日本語](#日本語)**
 
-**Current release: v1.293**
+**Current release: v1.294**
 
 A lightweight Windows notification utility for monitoring multiple streaming platforms and new content.
 
@@ -31,11 +31,12 @@ No account login is required for supported platform monitoring.
 > **Fan-made notification utility**  
 > Developed and maintained by Eltax.
 
-### What's new in v1.293
+### What's new in v1.294
 
-- Fixed RPLAY LIVE / OFFLINE detection issues.
-- Restored RPLAY stream-title retrieval and improved live notifications.
-- Improved RPLAY monitoring stability and error handling.
+- Fixed the platform selection menu not appearing when adding channels.
+- Fixed missing automatic stream-page opening options in profile editing for supported live channels.
+- Improved profile add/edit layout and saved-setting consistency.
+- Fixed an issue where an unexpected window could briefly appear during RPLAY monitoring.
 
 ---
 
@@ -57,7 +58,7 @@ No account login is required for supported platform monitoring.
 
 ![CHZZK notification example](img/1.27_alret_3.jpg)
 
-> Screenshots show the earlier 1.27 UI; some details may differ in v1.293.
+> Screenshots show the earlier 1.27 UI; some details may differ in v1.294.
 
 ---
 
@@ -427,7 +428,7 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 
 **[English](#hiki-notifier) | 한국어 | [日本語](#日本語)**
 
-**현재 버전: v1.293**
+**현재 버전: v1.294**
 
 **HIKI Notifier**는 여러 스트리밍 플랫폼의 방송 상태와 새 콘텐츠를 확인하고 Windows 알림으로 알려주는 가벼운 상주형 알림 유틸리티입니다.
 
@@ -456,11 +457,12 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 > **팬메이드 방송 알림 프로그램**  
 > Eltax가 제작하고 관리합니다.
 
-### v1.293 주요 변경 사항
+### v1.294 주요 변경 사항
 
-- RPLAY LIVE / OFFLINE 감지 오류 수정
-- RPLAY 방송 제목 표시 및 방송 시작 알림 기능 복구
-- RPLAY 감시 안정성과 오류 처리 개선
+- 채널 추가 시 플랫폼 선택 목록이 나타나지 않던 문제 수정
+- 프로파일 편집에서 지원 라이브 채널의 자동 페이지 열기 설정이 보이지 않던 문제 수정
+- 프로파일 추가·편집 화면 배치와 저장 설정 유지 개선
+- RPLAY 감시 중 불필요한 창이 잠깐 표시되던 현상 개선
 
 ---
 
@@ -482,7 +484,7 @@ Third-party trademarks, service names, and externally sourced assets remain subj
 
 ![CHZZK 알림창 예시](img/1.27_alret_3.jpg)
 
-> 위 스크린샷은 1.27 UI 기준으로, v1.293에서는 일부 세부 구성이 다를 수 있습니다.
+> 위 스크린샷은 1.27 UI 기준으로, v1.294에서는 일부 세부 구성이 다를 수 있습니다.
 
 ---
 
@@ -854,7 +856,7 @@ HIKI Notifier 프로젝트 소스 코드에는 현재 별도의 오픈소스 라
 
 **[English](#hiki-notifier) | [한국어](#한국어) | 日本語**
 
-**現在のバージョン: v1.293**
+**現在のバージョン: v1.294**
 
 **HIKI Notifier** は、複数の配信プラットフォームの配信状況や新着コンテンツを確認し、Windows通知で知らせる軽量な常駐型通知ユーティリティです。
 
@@ -883,11 +885,12 @@ HIKI Notifier 프로젝트 소스 코드에는 현재 별도의 오픈소스 라
 > **ファンメイドの配信通知ユーティリティ**  
 > Eltaxが開発・管理しています。
 
-### v1.293 の主な変更点
+### v1.294 の主な変更点
 
-- RPLAYのLIVE / OFFLINE検知の不具合を修正
-- RPLAYの配信タイトル表示と配信開始通知を復旧
-- RPLAY監視の安定性とエラー処理を改善
+- チャンネル追加時にプラットフォーム選択メニューが表示されない問題を修正
+- プロフィール編集画面で対応する配信チャンネルの自動ページ表示設定が見えない問題を修正
+- プロフィール追加・編集画面の配置と設定の保存動作を改善
+- RPLAY監視中に不要なウィンドウが一時的に表示される問題を改善
 
 ---
 
@@ -909,7 +912,7 @@ HIKI Notifier 프로젝트 소스 코드에는 현재 별도의 오픈소스 라
 
 ![CHZZK 通知例](img/1.27_alret_3.jpg)
 
-> スクリーンショットは旧1.27 UIのものです。v1.293では一部の表示が異なる場合があります。
+> スクリーンショットは旧1.27 UIのものです。v1.294では一部の表示が異なる場合があります。
 
 ---
 
